@@ -4,6 +4,6 @@ loginController = require("../controller/loginController")
 
 
 router.get("/" , loginController.login)
-router.get("/register" , loginController.login)
+router.get("/register" , loginController.register)
 
 module.exports = router;
