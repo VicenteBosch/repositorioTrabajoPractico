@@ -13,12 +13,6 @@ var productsRouter = require("./routes/products");
 var profileRouter = require("./routes/profile");
 var searchRouter = require("./routes/search");
 
-
-
-
-
-
-
 var app = express();
 
 // view engine setup
