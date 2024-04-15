@@ -22,7 +22,7 @@ const autos = {
             ]
         },
         {
-            imagen: "/images/products/auto1.jpg",
+            imagen: "/images/products/auto2.jpg",
             producto: "Honda Civic",
             descripcion: "Descripción del Honda Civic",
             comentarios: [
@@ -34,7 +34,7 @@ const autos = {
             ]
         },   
         {
-            imagen: "/images/products/auto1.jpg",
+            imagen: "/images/products/auto3.jpg",
             producto: "Ford Fiesta",
             descripcion: "Descripción del Ford Fiesta",
             comentarios: [
@@ -46,7 +46,7 @@ const autos = {
             ]
         },
         {
-            imagen: "/images/products/auto1.jpg",
+            imagen: "/images/products/auto4.jpg",
             producto: "Chevrolet Cruze",
             descripcion: "Descripción del Chevrolet Cruze",
             comentarios: [

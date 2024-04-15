@@ -68,7 +68,9 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: #e0e0ca;
+  
+
 }
 
 .main-header_home-link,
@@ -127,9 +129,13 @@ hr {
   display: none;
 }
 
-.left-navbar,
+
 .right-navbar {
   font-size: 1.5em;
+  display: flex;
+}
+.todosLosProductos{
+  order: 2;
 }
 
 .logout{
@@ -158,7 +164,7 @@ hr {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  height: 100px;
+
 }
 
 
@@ -166,6 +172,7 @@ hr {
 .products-wrapper {
   margin-top: 30px;
   margin-bottom: 30px;
+  
 }
 
 .products-title {
@@ -180,8 +187,25 @@ hr {
   overflow: hidden;
   transition: 300ms;
   margin: 20px 0;
+ 
+  
+  
 }
 
+.col-sm-6{
+
+flex-direction: row;
+}
+
+.row{
+  display: flex;
+  margin-top: 200px;
+}
+
+.product-box{
+
+  flex-direction: row;
+}
 .product-box a {
   display: block;
 }
@@ -528,3 +552,8 @@ textarea.form-input {
     margin: auto;
   }
 }
+
+.logo{
+  border-radius: 15px;
+}
+
