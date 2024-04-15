@@ -1,4 +1,4 @@
-const auots = {
+const autos = {
     usuario: {
         email: "usuario@example.com",
         usuario: "nombredeusuario",

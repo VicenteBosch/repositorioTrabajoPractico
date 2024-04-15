@@ -31,7 +31,7 @@ app.use('/users', usersRouter);
 app.use("/login" , loginRouter);
 app.use("/products" , productsRouter );
 app.use("/profile" , profileRouter);
-app.use("/search" , searchRouter);
+app.use("/search-results" , searchRouter);
 
 
 
