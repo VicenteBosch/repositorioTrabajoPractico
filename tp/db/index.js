@@ -1,29 +1,29 @@
 const autos = {
     usuario: {
-        email: "usuario@example.com",
-        usuario: "nombredeusuario",
-        contraseña: "contraseña123",
-        fecha_de_nacimiento: "1990-01-01",
+        email: "bautista@example.com",
+        nombre: "Bautista",
+        contraseña: "123",
+        fecha_de_nacimiento: "1/1/2004",
         nro_de_documento: 123456789,
-        foto_de_perfil: "/img/perfil.jpg" 
+        foto_de_perfil: "/images/users/fotoPerfil1.jpg" 
     },
 
     productos: [
         {
-            imagen: "/img/auto1.jpg",
-            nombre_producto: "Toyota Corolla",
-            descripcion: "Descripción del Toyota Corolla",
+            imagen: "/images/products/auto1.jpg",
+            producto: "Toyota Corolla",
+            descripcion: "Auto de alta gama",
             comentarios: [
                 {
                     nombre_usuario: "Usuario1",
-                    texto_comentario: "Comentario sobre Toyota Corolla",
-                    imagen_perfil: "/img/perfil1.jpg"
+                    texto: "Comentario sobre Toyota Corolla",
+                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
                 }
             ]
         },
         {
-            imagen: "/img/auto2.jpg",
-            nombre_producto: "Honda Civic",
+            imagen: "/images/products/auto1.jpg",
+            producto: "Honda Civic",
             descripcion: "Descripción del Honda Civic",
             comentarios: [
                 {
@@ -34,8 +34,8 @@ const autos = {
             ]
         },   
         {
-            imagen: "/img/auto3.jpg",
-            nombre_producto: "Ford Fiesta",
+            imagen: "/images/products/auto1.jpg",
+            producto: "Ford Fiesta",
             descripcion: "Descripción del Ford Fiesta",
             comentarios: [
                 {
@@ -46,8 +46,8 @@ const autos = {
             ]
         },
         {
-            imagen: "/img/auto4.jpg",
-            nombre_producto: "Chevrolet Cruze",
+            imagen: "/images/products/auto1.jpg",
+            producto: "Chevrolet Cruze",
             descripcion: "Descripción del Chevrolet Cruze",
             comentarios: [
                 {
@@ -58,8 +58,8 @@ const autos = {
             ]
         },   
         {
-            imagen: "/img/auto5.jpg",
-            nombre_producto: "Nissan Sentra",
+            imagen: "/images/products/auto1.jpg",
+            producto: "Nissan Sentra",
             descripcion: "Descripción del Nissan Sentra",
             comentarios: [
                 {
@@ -71,7 +71,7 @@ const autos = {
         },
         {
             imagen: "/img/auto6.jpg",
-            nombre_producto: "Volkswagen Jetta",
+            producto: "Volkswagen Jetta",
             descripcion: "Descripción del Volkswagen Jetta",
             comentarios: [
                 {

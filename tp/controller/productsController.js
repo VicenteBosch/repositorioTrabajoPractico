@@ -1,11 +1,13 @@
+const autos = require("../db/index");
+
 const controller = {
 
     products : function (req ,res) {
-        res.render("product")
+        res.render("product" ,  {"autos" : autos})
     } ,
 
     productsAdd : function (req ,res) {
-        res.render("product-add")
+        res.render("product-add" ,  {"autos" : autos})
     }
 }
 
