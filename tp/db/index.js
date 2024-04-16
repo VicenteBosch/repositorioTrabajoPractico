@@ -16,7 +16,7 @@ const autos = {
             comentarios: [
                 {
                     nombre_usuario: "Usuario1",
-                    texto: "Comentario sobre Toyota Corolla",
+                    texto: "Comentario sobre Toyota Corolla, autasssssssssooooooooo",
                     imagen_perfil: "/images/users/fotoPerfil1.jpg"
                 }
             ]

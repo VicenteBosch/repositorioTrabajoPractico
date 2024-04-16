@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Include Head -->
-<%- include('./partials/head') %>
-
-</head>
-
-<body>
-	<!-- Header -->
-	<%- include('./partials/headerLogueado') %>
+	<!-- Include Head -->
+	<%- include('./partials/head') %>
+	<!-- Include Head -->
+	
+	<body>
+		<!-- Header -->
+		<%- include('./partials/headerLogueado') %>
 		<!-- /Header -->
-
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Agregar productos</h2>
+		
+		<!-- Novedades -->
+		<div class="container products-wrapper">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="products-title">Agregar productos</h2>
+				</div>
+				<!-- Show the "ultimos" products -->
+				<form action="" method="GET">
+					<label for="imagen">Imagen:</label><br>
+					<input type="file" id="imagen" name="imagen"><br><br>
+					
+					<label for="nombre_producto">Nombre del Producto:</label><br>
+					<input type="text" id="nombre_producto" name="nombre_producto"><br><br>
+					
+					<label for="descripcion">Descripción:</label><br>
+					<input type="text" id="descripcion" name="descripcion"><br><br>
+					
+					<input type="submit" value="Agregar Producto">
+				</form>
 			</div>
-			<!-- Show the "ultimos" products -->
-			<form action="" method="GET" >
-				<label for="imagen">Imagen:</label><br>
-				<input type="file" id="imagen" name="imagen" ><br><br>
-		
-				<label for="nombre_producto">Nombre del Producto:</label><br>
-				<input type="text" id="nombre_producto" name="nombre_producto" ><br><br>
-		
-				<label for="descripcion">Descripción:</label><br>
-				<input type="text" id="descripcion" name="descripcion" ><br><br>
-		
-				<input type="submit" value="Agregar Producto">
-			</form>
+		</div>
 
-
-	<!-- footer -->
-	<%- include('./partials/footer') %>
-	<!-- /footer -->
-</body>
-
+		<!-- footer -->
+		<%- include('./partials/footer') %>
+		<!-- /footer -->
+	</body>
 </html>

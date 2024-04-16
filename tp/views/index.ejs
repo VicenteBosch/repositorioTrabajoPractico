@@ -1,81 +1,77 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Include Head -->
-<%- include('./partials/head') %>
+	<!-- Include Head -->
+	<%- include('./partials/head') %>
+	<!-- Include Head -->
 
-<body>
-	<!-- Header -->
-	<%- include('./partials/header') %>
-	<!-- /Header -->
-	
-	<!-- Banner -->
-	<div class="banner">
-		<img src="/images/users/imagenBanner.jpg" alt="Banner de ofertas">
-	</div>
-	<!-- /Banner -->
+	<body>
+		<!-- Header -->
+		<%- include('./partials/header') %>
+		<!-- /Header -->
 
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Novedades</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
+		<!-- Banner -->
+		<div class="banner">
+			<img src="/images/users/imagenBanner.jpg" alt="Banner de ofertas">
+		</div>
+		<!-- /Banner -->
 
-					<% for(let i = 0; i < 4; i++) { %>
-						<div class="col-12 col-sm-6 col-lg-3">
-
-						<section class="product-box">
-						<a href="/products">
-							<figure class="product-box_image">
-								<img src="<%= autos.productos[i].imagen %>" alt="cafetera moulinex">
-							</figure>
-							<article class="product-box_data">
-								<h2><%= autos.productos[i].producto %></h2>
-								<p><%= autos.productos[i].descripcion %></p>
-								<p><%= autos.productos[i].comentarios[0].comentario %></p>
-							</article>
-						</a>
-					</section>
+		<!-- Novedades -->
+		<div class="container products-wrapper">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="products-title">Novedades</h2>
 				</div>
-					<% } %>
 				
-			
-	</div>
-	<!-- /Novedades -->
-
-	<!-- Más comentados -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Más comentados</h2>
+				<!-- Show the "ultimos" products -->
+				<% for(let i = 0; i < 4 ; i++) { %>
+					<div class="col-12 col-sm-6 col-lg-3">
+						<section class="product-box">
+							<a href="/products">
+								<figure class="product-box_image">
+									<img src="<%= autos.productos[i].imagen %>" alt="cafetera moulinex">
+								</figure>
+								<article class="product-box_data">
+									<h2><%= autos.productos[i].producto %></h2>
+									<p><%= autos.productos[i].descripcion %></p>
+									<p><%= autos.productos[i].comentarios[0].comentario %></p>
+								</article>
+							</a>
+						</section>
+					</div>
+				<% } %>
 			</div>
-			<!-- Show the "ultimos" products -->
-			<% for(let i = 0; i < 4; i++) { %>
-				<div class="col-12 col-sm-6 col-lg-3">
-
-				<section class="product-box">
-				<a href="/products">
-					<figure class="product-box_image">
-						<img src="<%= autos.productos[i].imagen %>" alt="cafetera moulinex">
-					</figure>
-					<article class="product-box_data">
-						<h2><%= autos.productos[i].producto %></h2>
-						<p><%= autos.productos[i].descripcion %></p>
-						<p><%= autos.productos[i].comentarios[0].comentario %></p>
-					</article>
-				</a>
-			</section>
 		</div>
-			<% } %>
+		<!-- /Novedades -->
+
+		<!-- Más comentados -->
+		<div class="container products-wrapper">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="products-title">Más comentados</h2>
+				</div>
+				<!-- Show the "ultimos" products -->
+				<% for(let i = 0; i < 4; i++) { %>
+					<div class="col-12 col-sm-6 col-lg-3">
+						<section class="product-box">
+							<a href="/products">
+								<figure class="product-box_image">
+									<img src="<%= autos.productos[i].imagen %>" alt="cafetera moulinex">
+								</figure>
+								<article class="product-box_data">
+									<h2><%= autos.productos[i].producto %></h2>
+									<p><%= autos.productos[i].descripcion %></p>
+									<p><%= autos.productos[i].comentarios[0].comentario %></p>
+								</article>
+							</a>
+						</section>
+					</div>
+				<% } %>
+			</div>
 		</div>
-	</div>
+		<!-- /Más comentados -->
 
-	<!-- /Más comentados -->
-
-
-	<!-- footer -->
-	<%- include('./partials/footer') %>
-	<!-- /footer -->
-</body>	
+		<!-- footer -->
+		<%- include('./partials/footer') %>
+		<!-- /footer -->
+	</body>
 </html>
