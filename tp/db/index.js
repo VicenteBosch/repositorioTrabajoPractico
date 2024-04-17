@@ -18,7 +18,18 @@ const autos = {
                     nombre_usuario: "Usuario1",
                     texto: "Comentario sobre Toyota Corolla, autasssssssssooooooooo",
                     imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                },
+                {
+                    nombre_usuario: "Usuario1",
+                    texto: "gran auto",
+                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                },
+                {
+                    nombre_usuario: "Usuario1",
+                    texto: "muy buen motor",
+                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
                 }
+
             ]
         },
         {
@@ -30,6 +41,16 @@ const autos = {
                     nombre_usuario: "Usuario2",
                     texto: "Comentario sobre Honda Civic",
                     imagen_perfil: "/img/perfil2.jpg"
+                },
+                {
+                    nombre_usuario: "Usuario1",
+                    texto: "muy buen motor",
+                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                },
+                {
+                    nombre_usuario: "Usuario1",
+                    texto: "muy buen motor",
+                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
                 }
             ]
         },   

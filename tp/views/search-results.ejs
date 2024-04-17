@@ -13,11 +13,11 @@
 			<div class="d-flex align-items-center">
 				<h2 class="products-title"> <%= resultado[0].producto %> </h2> 
 				<p class="product-detail-description">
-					<a href="product-add.html">Editar</a>
+					<a href="/products/add">Editar</a>
 				</p>
 			</div>
+
 			<div class="product-detail">
-				
 				<div class="row">
 					<article class="col-12 col-lg-8 product-detail-info">
 						<img src="<%= resultado[0].imagen %>" alt="" class="product-detail-img">
@@ -26,34 +26,20 @@
 						</p>
 					</article>
 					<div class="col-12 col-lg-4">
-
-						<section class="comments">
-	
-							<div class="col-12 col-lg-4">
-								<section class="comments">
-
-									<article>
-
-										<img src="https://via.placeholder.com/35" alt="">
-
-										<div class="data">
-
-											<p class="user">
-												<strong> <a href="/profile"> <%=resultado[0].comentarios[0].nombre_usuario %></a> </strong>
-												<%=resultado[0].comentarios[0].texto %>
-											</p>
-											
-										</div>
-
-									</article>
-	
-								</section>
-							</div>
-
-						</section>
-
-					</div>
-					
+					<% for (let i = 0; i < resultado[0].comentarios.length; i++) { %>
+						
+							<section class="comments">
+								<article>
+									<img src="https://via.placeholder.com/35" alt="">
+									<div class="data">
+										<p class="user">
+											<strong><a href="/profile"><%= resultado[0].comentarios[i].nombre_usuario %></a></strong>
+											<%= resultado[0].comentarios[i].texto %>
+										</p>
+									</div>
+								</article>
+							</section>
+						<% } %>
 				</div>
 			</div>
 			
