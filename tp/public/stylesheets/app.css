@@ -203,8 +203,13 @@ flex-direction: row;
 
 .row{
   display: flex;
-  margin-top: 10px;
+  margin-top: 200px;
 }
+.rows{
+  display: flex;
+  margin-top: 60px;
+}
+
 
 .product-box{
 
