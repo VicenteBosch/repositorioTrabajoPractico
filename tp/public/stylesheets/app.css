@@ -79,7 +79,7 @@ hr {
 }
 
 .main-header_credit-link {
-  font-size: 1.5em;
+  font-size: 2em;
   margin-top: 20px;
   text-align: center;
 }
@@ -131,11 +131,12 @@ hr {
 
 
 .right-navbar {
-  font-size: 1.5em;
+  font-size: 2em;
   display: flex;
 }
 .todosLosProductos{
   order: 2;
+  font-size: 10px;
 }
 
 .logout{
@@ -149,7 +150,11 @@ hr {
   color: #1259c3;
 }
 
-.left-navbar a,
+.left-navbar a {
+  font-size: 2em;
+
+}
+
 .right-navbar a {
   display: block;
   padding: 5px 0;
