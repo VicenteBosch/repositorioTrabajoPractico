@@ -8,39 +8,56 @@
 		<%- include('./partials/header') %>
 		<!-- /Header -->
 
-		<!-- Novedades -->
 		<!-- product -->
 		<div class="container products-wrapper">
 			<div class="d-flex align-items-center">
-				<h2 class="products-title"> <%= resultado.producto %> </h2> 
+				<h2 class="products-title"> <%= resultado[0].producto %> </h2> 
 				<p class="product-detail-description">
 					<a href="product-add.html">Editar</a>
 				</p>
 			</div>
 			<div class="product-detail">
+				
 				<div class="row">
 					<article class="col-12 col-lg-8 product-detail-info">
-						<img src="<%= resultado.imagen %>" alt="" class="product-detail-img">
+						<img src="<%= resultado[0].imagen %>" alt="" class="product-detail-img">
 						<p class="product-detail-description">
-							<%= resultado.descripcion %>
+							<%= resultado[0].descripcion %>
 						</p>
-						<h3><%= resultado.producto %></h3> 
 					</article>
 					<div class="col-12 col-lg-4">
+
 						<section class="comments">
-							<article>
-								<img src="https://via.placeholder.com/35" alt="">
-								<div class="data">
-									<p class="user">
-									
-									</p>
-								</div>
-							</article>
+	
+							<div class="col-12 col-lg-4">
+								<section class="comments">
+
+									<article>
+
+										<img src="https://via.placeholder.com/35" alt="">
+
+										<div class="data">
+
+											<p class="user">
+												<strong> <a href="/profile"> <%=resultado[0].comentarios[0].nombre_usuario %></a> </strong>
+												<%=resultado[0].comentarios[0].texto %>
+											</p>
+											
+										</div>
+
+									</article>
+	
+								</section>
+							</div>
+
 						</section>
+
 					</div>
+					
 				</div>
 			</div>
-		
+			
+	
 		</div>
 		<!-- /Más comentados -->
 

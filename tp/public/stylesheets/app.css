@@ -186,9 +186,8 @@ hr {
   border-radius: 5px;
   overflow: hidden;
   transition: 300ms;
-  margin: 20px 0;
- 
-  
+  margin: auto;
+  padding: 5px;
   
 }
 
@@ -199,7 +198,7 @@ flex-direction: row;
 
 .row{
   display: flex;
-  margin-top: 200px;
+  margin-top: 10px;
 }
 
 .product-box{
@@ -215,7 +214,7 @@ flex-direction: row;
 }
 
 .product-box_data {
-  padding: 15px;
+  padding: 20px;
   position: relative;
   display: flex;
   align-items: center;
@@ -225,7 +224,7 @@ flex-direction: row;
 .product-box_data h2 {
   font-size: 2.4em;
   font-weight: 300;
-  margin: 0;
+  margin: 10px;
 }
 
 .product-box_data span {
