@@ -22,12 +22,12 @@ const autos = {
                 {
                     nombre_usuario: "Usuario1",
                     texto: "gran auto",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil2.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
                     texto: "muy buen motor",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil3.jpg"
                 }
 
             ]
@@ -40,17 +40,17 @@ const autos = {
                 {
                     nombre_usuario: "Usuario2",
                     texto: "Comentario sobre Honda Civic",
-                    imagen_perfil: "/img/perfil2.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil3.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
                     texto: "muy buen motor",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil4.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
                     texto: "muy buen motor",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfi5.jpg"
                 }
             ]
         },   
@@ -62,17 +62,17 @@ const autos = {
                 {
                     nombre_usuario: "Usuario3",
                     texto: "Comentario sobre Ford Fiesta",
-                    imagen_perfil: "/img/perfil3.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
                     texto: "gran auto",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil2.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
                     texto: "muy buen motor",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil3.jpg"
                 }
             ]
         },
@@ -84,17 +84,17 @@ const autos = {
                 {
                     nombre_usuario: "Usuario4",
                     texto: "Comentario sobre Chevrolet Cruze",
-                    imagen_perfil: "/img/perfil4.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil3.jpg.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
                     texto: "gran auto",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil4.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
                     texto: "muy buen motor",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil5.jpg"
                 }
             ]
         },   
@@ -106,17 +106,17 @@ const autos = {
                 {
                     nombre_usuario: "Usuario5",
                     texto: "Comentario sobre Nissan Sentra",
-                    imagen_perfil: "/img/perfil5.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
                     texto: "gran auto",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil4.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
                     texto: "muy buen motor",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil3.jpg"
                 }
             ]
         },
@@ -128,17 +128,17 @@ const autos = {
                 {
                     nombre_usuario: "Usuario6",
                     texto: "Comentario sobre Volkswagen Jetta",
-                    imagen_perfil: "/img/perfil6.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil3.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
                     texto: "gran auto",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil5.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
                     texto: "muy buen motor",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil4.jpg"
                 }
             ]
         },   
@@ -150,12 +150,12 @@ const autos = {
                 {
                     nombre_usuario: "Usuario7",
                     texto: "Comentario sobre volkswagen taos",
-                    imagen_perfil: "/img/perfil7.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil4.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
                     texto: "gran auto",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil2.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
@@ -172,12 +172,12 @@ const autos = {
                 {
                     nombre_usuario: "Usuario8",
                     texto: "Comentario sobre Toyota Hilux",
-                    imagen_perfil: "/img/perfil8.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil4.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
                     texto: "gran auto",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil2.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
@@ -194,12 +194,12 @@ const autos = {
                 {
                     nombre_usuario: "Usuario9",
                     texto: "Comentario sobre Dodge Journey",
-                    imagen_perfil: "/img/perfil9.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil5.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
                     texto: "gran auto",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil3.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
@@ -216,17 +216,17 @@ const autos = {
                 {
                     nombre_usuario: "Usuario10",
                     texto: "Comentario sobre Kia Sportage",
-                    imagen_perfil: "/img/perfil10.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil3.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
                     texto: "gran auto",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil4.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
                     texto: "muy buen motor",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil2.jpg"
                 }
             ]
         },
@@ -238,17 +238,17 @@ const autos = {
                 {
                     nombre_usuario: "Usuario11",
                     texto: "Comentario sobre Toyota Hilux",
-                    imagen_perfil: "/img/perfil9.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil2.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
                     texto: "gran auto",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil3.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
                     texto: "muy buen motor",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil5.jpg"
                 }
             ]
         },
@@ -260,17 +260,17 @@ const autos = {
                 {
                     nombre_usuario: "Usuario12",
                     texto: "Comentario sobre Toyota Yaris",
-                    imagen_perfil: "/img/perfil10.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
                     texto: "gran auto",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil4.jpg"
                 },
                 {
                     nombre_usuario: "Usuario1",
                     texto: "muy buen motor",
-                    imagen_perfil: "/images/users/fotoPerfil1.jpg"
+                    imagen_perfil: "/images/users/fotoPerfil3.jpg"
                 }
             ]
         }
