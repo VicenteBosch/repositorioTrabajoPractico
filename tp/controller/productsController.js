@@ -25,7 +25,7 @@ const controller = {
         let resultado = []
         for (let i = 0; i < autos.productos.length; i++) {
             if (buscador == autos.productos[i].producto) {
-                resultado.push(autos.productos[i].producto);
+                resultado.push(autos.productos[i]);
             }
         } if (resultado.length === 0) {
             return res.send("no existente");
