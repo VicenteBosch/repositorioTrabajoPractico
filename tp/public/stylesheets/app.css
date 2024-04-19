@@ -187,7 +187,7 @@ hr {
 }
 
 .product-box {
-  background-color: #ffffff;
+  background-color: #c7e2ca;
   border-radius: 5px;
   overflow: hidden;
   transition: 300ms;
@@ -214,6 +214,8 @@ flex-direction: row;
 .product-box{
 
   flex-direction: row;
+  height: 300px;
+  
 }
 .product-box a {
   display: block;
@@ -568,4 +570,8 @@ textarea.form-input {
 
 .col-12{
   margin-top: 50px;
+}
+
+.formularios{
+  margin-bottom: 20px;
 }

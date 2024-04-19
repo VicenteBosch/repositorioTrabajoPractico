@@ -139,7 +139,7 @@ const autos = {
             ]
         },
         {
-            imagen: "/img/auto10.jpg",
+            imagen: "/images/products/auto10.jpg",
             producto: "Kia Sportage",
             descripcion: "Descripción del Kia Sportage",
             comentarios: [
@@ -163,7 +163,7 @@ const autos = {
             ]
         },
         {
-            imagen: "/img/auto12.jpg",
+            imagen: "/images/products/auto12.jpg",
             producto: "Toyota Yaris",
             descripcion: "Descripción del Toyota Yaris",
             comentarios: [
