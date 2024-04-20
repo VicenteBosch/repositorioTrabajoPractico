@@ -175,7 +175,6 @@ hr {
 
 /*====== Products ======*/
 .products-wrapper {
-  margin-top: 30px;
   margin-bottom: 30px;
   
 }
@@ -336,19 +335,18 @@ flex-direction: row;
 .product-detail {
   background-color: #ffffff;
   border-radius: 8px;
-  overflow: hidden;
+  
 }
 
 .product-detail-img {
-  width: 70%;
+  width: auto;
   display: block;
   margin: auto;
 }
 
 .product-detail-info {
   border-right: 1px solid var(--light-gray);
-  padding: 15px;
-  /* height: 100%; */
+  height: 100%;
 }
 
 .product-detail-title {
