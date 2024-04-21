@@ -16,12 +16,22 @@ const controller = {
        }
     } ,
 
-    productsAdd : function (req ,res) {
-        return res.render("product-add" ,  {"autos" : autos})
+    add : function (req ,res) {
+         res.render("product-add")
     } ,
 
     search : function (req ,res) {
-        return res.render("search-results" ,  {"autos" : autos})
+        let searchID = req.query.search;
+        let resultado = []
+        for (let i = 0; i < autos.productos.length; i++) {
+            if (searchID==autos.productos[i].producto) {
+                resultado.push(autos.productos[i]);
+            }
+        } if (resultado.length === 0) {
+            return res.send("no existente");
+        } else {
+            return res.render ( "search-results" , { "resultado" : resultado} )
+        }
     }
 
 }

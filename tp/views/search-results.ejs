@@ -11,38 +11,43 @@
 		<!-- product -->
 		<div class="container products-wrapper">
 			<div class="d-flex align-items-center">
-				<h2 class="products-title"> <%= autos.productos[0].producto %> </h2> 
+				<h2 class="products-title"> <%= resultado[0].producto %></h2> 
 				<p class="product-detail-description">
 					<a href="/products/add">Editar</a>
 				</p>
 			</div>
-
 			<div class="product-detail">
 				<div class="row">
 					<article class="col-12 col-lg-8 product-detail-info">
-						<img src="<%= autos.productos[0].imagen %>" alt="" class="product-detail-img">
+						<img src="<%= resultado[0].imagen %>" alt="" class="product-detail-img">
 						<p class="product-detail-description">
-							<%=autos.productos[0].descripcion %>
+							<%= resultado[0].descripcion %>						
 						</p>
 					</article>
-					<div class="col-12 col-lg-4">
-
-							<section class="comments">
-								<article>
-									<img src="https://via.placeholder.com/35" alt="">
-									<div class="data">
-										<p class="user">
-											<strong><a href="/profile"><%= autos.productos[0].comentarios[0].nombre_usuario %></a></strong>
-											<%= autos.productos[0].comentarios[0].texto %>
-										</p>
-									</div>
-								</article>
+					
+						<div class="col-12 col-lg-4">
+							<section class="comments"></section>
+							<% for (let i = 0; i < resultado[0].comentarios.length; i++) { %>
+						
+								<section class="comments">
+									<article>
+										<img src="<%= resultado[0].comentarios[i].imagen_perfil %>" alt="">
+										<div class="data">
+											<p class="user">
+												<strong><a href="/profile"><%= resultado[0].comentarios[i].nombre_usuario %></a></strong>
+												<%= resultado[0].comentarios[i].texto %>
+											</p>
+										</div>
+									</article>
+								
+							<% } %>
+							
 							</section>
 						
+						</div>	
+					</div>
 				</div>
 			</div>
-			
-	
 		</div>
 		<!-- /Más comentados -->
 
