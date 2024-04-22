@@ -10,7 +10,7 @@ const controller = {
                resultado.push(autos.productos[i]);
            }
        } if (resultado.length === 0) {
-           return res.send("no existente");
+           return res.send("no exi");
        } else {
            return res.render ( "product" , { "resultado" : resultado} )
        }
@@ -20,20 +20,24 @@ const controller = {
          res.render("product-add")
     } ,
 
-    search : function (req ,res) {
-        let searchID = req.query.search;
-        let resultado = []
-        for (let i = 0; i < autos.productos.length; i++) {
-            if (searchID==autos.productos[i].producto) {
-                resultado.push(autos.productos[i]);
-            }
-        } if (resultado.length === 0) {
-            return res.send("no existente");
-        } else {
-            return res.render ( "search-results" , { "resultado" : resultado} )
-        }
+    search : function(req,res){
+        res.render("search-results", { "resultado" : autos.productos})
     }
 
 }
 
 module.exports = controller;
+
+/*function (req ,res) {
+    let searchID = req.query.search;
+    let resultado = []
+    for (let i = 0; i < autos.productos.length; i++) {
+        if (searchID==autos.productos[i].producto) {
+            resultado.push(autos.productos[i]);
+        }
+    } if (resultado.length === 0) {
+        return res.send("no existente");
+    } else {
+        return res.render ( "search-results" , { "resultado" : resultado} )
+    }
+} */
