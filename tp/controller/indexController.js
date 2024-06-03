@@ -1,3 +1,4 @@
+const db = require("../database/models/index")
 const autos = require("../db/index");
 const controller = {
 
