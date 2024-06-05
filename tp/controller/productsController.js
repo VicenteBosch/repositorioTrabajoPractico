@@ -1,7 +1,6 @@
-const db = require("../database/models/index")
-const autos = require("../db/index");
+const db = require("../database/models")
 
-const controller = {
+const productsController = {
 
     products : function (req ,res) {
        let productID = req.params.id;
@@ -27,7 +26,7 @@ const controller = {
  
 }
 
-module.exports = controller;
+module.exports = productsController;
 
 /*function (req ,res) {
     let searchID = req.query.search;

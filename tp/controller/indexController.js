@@ -1,6 +1,6 @@
-const db = require("../database/models/index")
-const autos = require("../db/index");
-const controller = {
+const db = require("../database/models")
+
+const indexController = {
 
     home : function (req ,res) {
         res.render("index" ,  {"autos" : autos})
@@ -8,4 +8,4 @@ const controller = {
 
 }
 
-module.exports = controller;
+module.exports = indexController;

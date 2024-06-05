@@ -1,7 +1,6 @@
-const db = require("../database/models/index")
-const autos = require("../db/index");
+const db = require("../database/models")
 
-const controller = {
+const profileController = {
 
     profile : function (req ,res) {
         res.render("profile" , {"autos" : autos})
@@ -20,4 +19,4 @@ const controller = {
     }
 };
 
-module.exports = controller;
+module.exports = profileController;
