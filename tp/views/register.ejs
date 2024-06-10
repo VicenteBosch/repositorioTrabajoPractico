@@ -17,11 +17,14 @@
 				<form action="/profile/register" method="POST" novalidate>
                     <div>
                         <label for="name">Nombre de Usuario</label>
-                        <input type="text" id="name" name="name" placeholder="nombre" value="">
+                        <input type="text" id="name" name="name" placeholder="nombre" 
+						value="<%= locals.oldData !== undefined && oldData.name ? oldData.name : "" %>">
 
 						<% if (locals.errors && errors.name) { %>
 						 
-							<p> <%= errors.name.msg %></p>
+							<div class="error">
+								<p> <%= errors.name.msg %></p>
+							</div>
 
 						<% } %>
 
@@ -29,12 +32,13 @@
                     </div>
                     <div>
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="email" value="">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="email" 
+						value="<%= locals.oldData !== undefined && oldData.email ? oldData.email : "" %>">
 						
 						<% if (locals.errors && errors.email) { %>
-						 
+						 <div class="error">
 							<p> <%= errors.email.msg %></p>
-
+						</div>
 						<% } %>
 
 					
@@ -43,11 +47,13 @@
                     <div>
                         <label for="password">Contraseña</label>
                         <input type="password" id="password" name="password" placeholder="contraseña" 
-							value= "<%= locals.old !== undefined && old.password ? old.password : "" %> ">
+							value= "<%= locals.oldData !== undefined && oldData.password ? oldData.password : "" %>">
 
 						<% if (locals.errors && errors.password) { %>ç
 						 
-							<p> <%= errors.password.msg %></p>
+							<div class="error">
+								<p> <%= errors.password.msg %></p>
+							</div>
 
 						<% } %>
 

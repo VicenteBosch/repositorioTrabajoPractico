@@ -36,10 +36,11 @@ const profileController = {
         } else {
 
             const usuario_agregado = {
-
-                email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 10),
+                
                 nombre: req.body.name,
+                email: req.body.email,
+                contraseña: bcrypt.hashSync(req.body.password, 10)
+                
             };
 
             db.User.create(usuario_agregado)

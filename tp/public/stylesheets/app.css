@@ -573,3 +573,10 @@ textarea.form-input {
 .formularios{
   margin-bottom: 20px;
 }
+
+/*====== Errores en pantalla ======*/
+
+.error{
+  color: red;
+  font-weight: bold;
+}
