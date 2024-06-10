@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function (Sequelize, dataTypes) {
 
     let alias = 'Product';
   
@@ -6,34 +6,31 @@ module.exports = function (sequelize, DataTypes) {
       id_producto: {
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER,
-      },
-      id_usuarios: {
-        type: DataTypes.INTEGER,
-
+        type: dataTypes.INTEGER,
       },
       nombre_producto: {
-        type: DataTypes.STRING,
-        
-      },
-      descripcion_producto: {
-        type: DataTypes.STRING,
+        type: dataTypes.STRING,
         
       },
       nombre_archivo_imagen: {
-        type: DataTypes.STRING,
+        type: dataTypes.STRING,
         
       },
+      descripcion_producto: {
+        type: dataTypes.STRING,
+        
+      },
+
       createdAt: {
-        type: DataTypes.DATE,
+        type: dataTypes.DATE,
         
       },
       updatedAt: {
-        type: DataTypes.DATE,
+        type: dataTypes.DATE,
         
       },
       deletedAt: {
-        type: DataTypes.DATE,
+        type: dataTypes.DATE,
        
       },
     };
@@ -44,8 +41,27 @@ module.exports = function (sequelize, DataTypes) {
       underscored: true,
     };
   
-    let Product = sequelize.define(alias, cols, config);
+    let Product = Sequelize.define(alias, cols, config);
   
+     /* Product.associate = function(models) {
+
+          Product.belongsTo( models.User , {
+
+            as: "user", 
+            foreignKey: "id_usuario", 
+            timestamps: "false",
+            underscored: "true"
+
+
+          }
+
+
+          )
+
+
+      }*/
+
+
   
     return Product;
 
