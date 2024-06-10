@@ -24,6 +24,7 @@ module.exports = function (Sequelize, dataTypes) {
       dni: {
         type: dataTypes.INTEGER
       },
+      
       foto_de_perfil: {
         type: dataTypes.STRING
       },

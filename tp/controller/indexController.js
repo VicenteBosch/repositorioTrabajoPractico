@@ -1,11 +1,17 @@
-// const db = require("../database/models")
+const db = require("../database/models")
 
 const indexController = {
 
     home : function (req ,res) {
-        res.render("index" ,  {"autos" : autos})
+       db.Product.findAll()
+       .then(function (data) {
+            return res.send(data)
+       }
+       .catch(function (err) {
+            return console.log(err)
+       }),
         
-    } 
+    )}
 
 }
 
