@@ -19,36 +19,36 @@ module.exports = function (Sequelize, dataTypes) {
       descripcion_producto: {
         type: dataTypes.STRING,
         
-      },
+      }
 
-      createdAt: {
-        type: dataTypes.DATE,
-        
-      },
-      updatedAt: {
-        type: dataTypes.DATE,
-        
-      },
-      deletedAt: {
-        type: dataTypes.DATE,
-       
-      },
+    
+     
+    
     };
   
     let config = {
       tableName: 'productos',
-      timestamps: true,
+      timestamps: false,
       underscored: true,
     };
   
     let Product = Sequelize.define(alias, cols, config);
   
-     /* Product.associate = function(models) {
+      Product.associate = function(models) {
 
           Product.belongsTo( models.User , {
 
             as: "user", 
-            foreignKey: "id_usuario", 
+            foreignKey: "id_usuarios", 
+            timestamps: "false",
+            underscored: "true"
+
+
+          });
+          Product.hasMany( models.Comment , {
+
+            as: "comment", 
+            foreignKey: "id",  
             timestamps: "false",
             underscored: "true"
 
@@ -56,10 +56,11 @@ module.exports = function (Sequelize, dataTypes) {
           }
 
 
+
           )
 
 
-      }*/
+      }
 
 
   

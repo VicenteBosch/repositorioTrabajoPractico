@@ -9,21 +9,12 @@ module.exports = function (Sequelize, dataTypes) {
       },
       texto_comentario: {
         type: dataTypes.STRING,
-      },
-      createdAt: {
-        type: dataTypes.DATE,
-      },
-      updatedAt: {
-        type: dataTypes.DATE,
-      },
-      deletedAt: {
-        type: dataTypes.DATE,
-      },
+      }
     };
   
     let config = {
       tableName: 'comentarios',
-      timestamps: true,
+      timestamps: false,
       underscored: true,
     };
   

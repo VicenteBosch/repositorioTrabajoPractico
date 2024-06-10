@@ -27,36 +27,23 @@ module.exports = function (Sequelize, dataTypes) {
       
       foto_de_perfil: {
         type: dataTypes.STRING
-      },
-
-      createdAt: {
-        type: dataTypes.DATE,
-        
-      },
-      updatedAt: {
-        type: dataTypes.DATE,
-        
-      },
-      deletedAt: {
-        type: dataTypes.DATE,
-       
-      },
+      }
     };
   
     let config = {
       tableName: 'usuarios',
-      timestamps: true,
+      timestamps: false,
       underscored: true,
     };
   
     let User = Sequelize.define(alias, cols, config);
   
-     /* Product.associate = function(models) {
+     User.associate = function(models) {
 
-          Product.belongsTo( models.User , {
+          User.hasMany( models.Product , {
 
-            as: "user", 
-            foreignKey: "id_usuario", 
+            as: "product", 
+            foreignKey: "id_productos", 
             timestamps: "false",
             underscored: "true"
 
@@ -66,8 +53,14 @@ module.exports = function (Sequelize, dataTypes) {
 
           )
 
+          User.hasMany(models.Comment, {
 
-      }*/
+            as: "comment",
+            foreignKey: "id",
+            timestamps: "false",
+            underscored: "true"
+          })
+      }
 
 
   
