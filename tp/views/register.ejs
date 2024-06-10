@@ -14,22 +14,47 @@
 				<div class="col-12">
 					<h2 class="products-title">Registrarse</h2>
 				</div>
-				<!-- Show the "ultimos" products -->
-				<form action="" method="GET">
-					<ul>
-						<li><label for="email">Email:</label></li>
-						<li class = "formularios"><input type="email" id="email" name="email"></li>
+				<form action="/profile/register" method="POST" novalidate>
+                    <div>
+                        <label for="name">Nombre de Usuario</label>
+                        <input type="text" id="name" name="name" placeholder="nombre" value="">
+
+						<% if (locals.error && errors.name) { %>
+						 
+							<p> <%= errors.name.msg %></p>
+
+						<% } %>
+
+
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="email" value="">
 						
-						<li><label for="usuario">Usuario:</label></li>
-						<li class = "formularios"><input type="text" id="usuario" name="usuario"></li>
-						
-						<li><label for="contraseña">Contraseña:</label></li>
-						<li class = "formularios"><input type="password" id="contraseña" name="contraseña"></li>
-						
-						
-						<li><input type="submit" value="Registrarse"></li>
-					</ul>
-				</form>
+						<% if (locals.error && errors.email) { %>
+						 
+							<p> <%= errors.email.msg %></p>
+
+						<% } %>
+
+					
+					</div>
+				
+                    <div>
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" name="password" placeholder="contraseña" 
+							value= "<%= locals.old !== undefined && old.password ? old.password : "" %> ">
+
+						<% if (locals.error && errors.password) { %>
+						 
+							<p> <%= errors.password.msg %></p>
+
+						<% } %>
+
+                    </div>
+                    
+                    <button type="submit">Registrarme</button>
+                </form>
 			</div>
 		</div>
 		<!-- /Novedades -->

@@ -3,10 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require("express-session");
 
 var indexRouter = require('./routes/index');
 var productsRouter = require("./routes/products");
 var profileRouter = require("./routes/profile");
+var db = require("./database/models");
 
 var app = express();
 
@@ -19,6 +21,23 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session(
+  { secret:'autosdb',
+    resave: false,
+    saveUninitialized: true }
+));
+
+app.use(function(req, res, next){
+  //console.log('En session middleware');
+  //console.log(req.session.user);
+  if(req.session.user != undefined){
+    res.locals.user = req.session.user;
+    //console.log("entre en locals: ");
+    //console.log(res.locals);
+    return next();
+  } 
+  return next(); //Clave para que el proceso siga adelante.  
+})
 
 app.use('/', indexRouter);
 app.use("/products" , productsRouter );
