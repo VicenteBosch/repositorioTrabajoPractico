@@ -1,4 +1,5 @@
 const db = require("../database/models")
+const bcrypt = require("bcryptjs");
 const {validationResult} = require("express-validator");
 
 
@@ -35,9 +36,10 @@ const profileController = {
         } else {
 
             const usuario_agregado = {
-                nombre_usuario: req.body.name,
+
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
+                nombre: req.body.name,
             };
 
             db.User.create(usuario_agregado)

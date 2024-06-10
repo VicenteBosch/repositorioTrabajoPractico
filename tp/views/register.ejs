@@ -19,7 +19,7 @@
                         <label for="name">Nombre de Usuario</label>
                         <input type="text" id="name" name="name" placeholder="nombre" value="">
 
-						<% if (locals.error && errors.name) { %>
+						<% if (locals.errors && errors.name) { %>
 						 
 							<p> <%= errors.name.msg %></p>
 
@@ -31,7 +31,7 @@
                         <label for="email">Email</label>
                         <input type="email" class="form-control" id="email" name="email" placeholder="email" value="">
 						
-						<% if (locals.error && errors.email) { %>
+						<% if (locals.errors && errors.email) { %>
 						 
 							<p> <%= errors.email.msg %></p>
 
@@ -45,7 +45,7 @@
                         <input type="password" id="password" name="password" placeholder="contraseña" 
 							value= "<%= locals.old !== undefined && old.password ? old.password : "" %> ">
 
-						<% if (locals.error && errors.password) { %>
+						<% if (locals.errors && errors.password) { %>ç
 						 
 							<p> <%= errors.password.msg %></p>
 
