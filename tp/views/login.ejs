@@ -1,45 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
-	<!-- Include Head -->
-	<%- include('./partials/head') %>
-	<!-- Include Head -->
+    <!-- Include Head -->
+    <%- include('./partials/head') %>
 
-	<body>
-		<!-- Header -->
-		<%- include('./partials/header') %>
-		<!-- /Header -->
+    <body>
+        <!-- Header -->
+        <%- include('./partials/header') %>
+        <!-- /Header -->
 
-		<!-- Novedades -->
-		<div class="container products-wrapper">
-			<div class="row">
-				<div class="col-12">
-					<h2 class="products-title">Ingresar</h2>
-				</div>
-
-				<form action="" method="GET">
-					<ul > 
-						<li><label for="usuario">Usuario:</label></li>
-						<li>
-							<input type="email" id="email" name="usuario" placeholder="email" value=""></li>
+        <!-- Novedades -->
+        <div class="container products-wrapper">
+            <div class="row">
 				
-						<li><label for="contraseña">Contraseña:</label></li>
-						<li>
-							<input type="password" id="contraseña"  name="contraseña" placeholder="contraseña"></li>
-				
-						<li><label>Recordarme:</label></li>
-						<li>
-							<input type="checkbox" id="recordarme"  name="recordarme" value="ok"></li>
-				
-						<li>
-							<input type="submit" value="Ingresar"></li>
-					</ul>
-				</form>
-			</div>
-		</div>
-		<!-- /Novedades -->
+                <div class="col-12">
+                    <h2 class="products-title">Iniciar sesion</h2>
+                </div>
 
-		<!-- footer -->
-		<%- include('./partials/footer') %>
-		<!-- /footer -->
-	</body>
+                <form action="/profile/login" method="POST" novalidate>
+
+                    <div>
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-input" id="email" name="email" placeholder="email" 
+                               value="<%= locals.oldData !== undefined && oldData.email ? oldData.email : "" %>">
+
+                        <% if (locals.errors && errors.email) { %>
+                            <div class="error">
+                                <p><%= errors.email.msg %></p>
+                            </div>
+                        <% } %>
+                    </div>
+
+                    <div>
+                        <label for="password"  class="form-label" >Contraseña</label>
+                        <input type="password" id="password" name="password" placeholder="contraseña" class="form-input"
+                               value="<%= locals.oldData !== undefined && oldData.password ? oldData.password : "" %>">
+
+                        <% if (locals.errors && errors.password) { %>
+                            <div class="error">
+                                <p><%= errors.password.msg %></p>
+                            </div>
+                        <% } %>
+                    </div>
+
+                    <button type="submit" class="bottom">Iniciar sesion</button>
+                </form>
+            </div>
+        </div>
+        <!-- /Novedades -->
+
+        <!-- footer -->
+        <%- include('./partials/footer') %>
+        <!-- /footer -->
+    </body>
 </html>

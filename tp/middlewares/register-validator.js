@@ -1,5 +1,6 @@
 const {body} = require("express-validator");
-
+const db= require("../database/models")
+const bcryptjs = require('bcryptjs');
 
 const registerValidtions = [
     body("name")
@@ -12,6 +13,28 @@ const registerValidtions = [
         .withMessage("debes completar tu email")
         .isEmail()
         .withMessage("Debes escribir un formato de correo valido")
+        .custom(function(value, {req}){
+
+                return db.User.findOne({
+
+                    where: {email: value}
+                })
+                .then(function (user) {
+
+                    if (user) {
+                        throw new Error("El mail ingresado ya existe, intente con otro")
+                    }
+                    
+                })
+                .catch(function (error) {
+                        
+                        console.log(error);
+
+                    }
+                )
+
+
+        })
     ,
     
     body("password")

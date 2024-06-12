@@ -19,18 +19,6 @@ module.exports = function (Sequelize, dataTypes) {
       contraseña: {
         type: dataTypes.STRING,
         
-      },
-      fecha_de_nacimiento: {
-        type: dataTypes.DATE,
-        
-      },
-
-      dni: {
-        type: dataTypes.INTEGER
-      },
-      
-      foto_de_perfil: {
-        type: dataTypes.STRING
       }
     };
   

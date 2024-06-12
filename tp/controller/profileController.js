@@ -14,7 +14,7 @@ const profileController = {
     },
 
     login : function (req ,res) {
-        res.render("login" , {"autos" : autos})
+        res.render("login")
     } ,
 
     register : function (req ,res) {
@@ -45,7 +45,7 @@ const profileController = {
 
             db.User.create(usuario_agregado)
                 .then(function (usuario_agregado) {
-                    return res.redirect("/login");
+                    return res.redirect("/profile/login");
                 })
                 .catch(function (err) {
                     console.log("Error al guardar el usuario", err);
