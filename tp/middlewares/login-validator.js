@@ -19,7 +19,6 @@ const loginValidation = [
                 }
             })
         }
-        .withMessage("Error")
     ),
     body("password")
         .notEmpty()
