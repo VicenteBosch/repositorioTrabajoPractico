@@ -33,6 +33,33 @@
             </ul>
 
             <ul class="right-navbar">
+                
+                <% if (locals.user) { %>
+                    <li><a href= "">
+                        <%= locals.user.nombre %> <i class="fas fa-user"></i>
+                    </a>
+                </li>
+                <li>
+                    <form action="" method="post">
+                        <button class="logout" type="submit">
+                            Cerrar sesión <i class="fas fa-sign-in-alt"></i>
+                        </button>
+                    </form>
+                </li>
+
+                <% } %>
+
+                <li>
+                    <a href="/profile/register">Creá tu cuenta <i class="far fa-address-card"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="/profile/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
+                </li>
+
+
+                
+                
                 <!-- Solo logueado <li><a href="profile.html">
                         Nombre del usuario <i class="fas fa-user"></i>
                     </a>
@@ -44,13 +71,7 @@
                         </button>
                     </form>
                 </li> -->
-                <li>
-                    <a href="/profile/register">Creá tu cuenta <i class="far fa-address-card"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="/profile/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
-                </li>
+                
             </ul>
         </nav>
     </div>

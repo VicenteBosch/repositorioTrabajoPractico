@@ -6,15 +6,33 @@ const {validationResult} = require("express-validator");
 const profileController = {
 
     profile : function (req ,res) {
-        res.render("profile" , {"autos" : autos})
+        res.render("profile")
     } ,
 
     profileEdit : function (req ,res) {
-        res.render("profile-edit" , {"autos" : autos })
+        res.render("profile-edit")
     },
 
     login : function (req ,res) {
         res.render("login")
+    } ,
+
+    loginStore :  function (req ,res) {
+        db.User.findOne({
+            where : [{
+                email : req.body.email
+            }]
+        })
+        .then(function (user) {
+            req.session.user = user;
+            console.log("user : " , user)
+            res.redirect("/")
+
+        })
+        .catch(function (err) {
+            console.log(err)
+        })
+
     } ,
 
     register : function (req ,res) {
@@ -23,7 +41,7 @@ const profileController = {
 
     },
 
-    store : function (req ,res) {
+    registerStore : function (req ,res) {
 
         const resultValidation = validationResult(req);
 
