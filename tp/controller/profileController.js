@@ -18,27 +18,26 @@ const profileController = {
     } ,
 
     loginStore :  function (req ,res) {
-        db.User.findOne({
-            where : [{
-                email : req.body.email
-            }]
-        })
-        .then(function (user) {
-            req.session.user = user;
-            console.log("user : " , user)
-            res.redirect("/")
 
-        })
-        .catch(function (err) {
-            console.log(err)
-        })
+            db.User.findOne({
+                where : [{
+                    email : req.body.email
+                }]
+            })
+            .then(function (user) {
+                req.session.user = user;
+                console.log("user : " , user)
+                res.redirect("/")
+
+            })
+            .catch(function (err) {
+                console.log(err)
+            })
 
     } ,
 
     register : function (req ,res) {
-
         res.render("register")
-
     },
 
     registerStore : function (req ,res) {
