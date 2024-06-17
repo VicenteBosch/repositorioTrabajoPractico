@@ -56,7 +56,10 @@ const profileController = {
                 
                 nombre: req.body.name,
                 email: req.body.email,
-                contraseña: bcrypt.hashSync(req.body.password, 10)
+                contraseña: bcrypt.hashSync(req.body.password, 10),
+                fecha_de_nacimiento: req.body.fecha_de_nacimiento,
+                dni: req.body.dni,
+                foto_de_perfil: req.body.foto_de_perfil
                 
             };
 

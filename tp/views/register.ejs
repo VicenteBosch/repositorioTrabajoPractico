@@ -53,6 +53,22 @@
                         <% } %>
                     </div>
 
+                    <div>
+                        <label for="fecha_de_nacimiento"  class="form-label" >Fecha de nacimiento</label>
+                        <input type="date" id="fecha_de_nacimiento" name="fecha_de_nacimiento" placeholder="Fecha de nacimiento" class="form-input"
+                               value="<%= locals.oldData !== undefined && oldData.fecha_de_nacimiento ? oldData.fecha_de_nacimiento : "" %>">
+                    </div>
+                    <div>
+                        <label for="dni"  class="form-label" >Numero de documento</label>
+                        <input type="number" id="dni" name="dni" placeholder="Numero de documento" class="form-input"
+                               value="<%= locals.oldData !== undefined && oldData.dni ? oldData.dni : "" %>">
+                    </div>
+                    <div>
+                        <label for="foto_de_perfil"  class="form-label" >Foto de perfil</label>
+                        <input type="file" id="foto_de_perfil" name="foto_de_perfil" placeholder="Foto de perfil" class="form-input"
+                               value="<%= locals.oldData !== undefined && oldData.foto_de_perfil ? oldData.foto_de_perfil : "" %>">
+                    </div>
+
                     <button type="submit" class="bottom">Registrarme</button>
                 </form>
             </div>
