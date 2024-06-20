@@ -13,6 +13,7 @@ router.get("/register" , profileController.register)
 
 router.post("/register" , registerValidtions, profileController.registerStore);
 router.post("/login" , loginValidations, profileController.loginStore);
+router.post("/logout" , profileController.logout);
 
 
 module.exports = router;

@@ -44,15 +44,12 @@ module.exports = function (Sequelize, dataTypes) {
         User.hasMany( models.Product , {
 
           as: "product", 
-          foreignKey: "id_productos", 
+          foreignKey: "id_producto", 
           timestamps: "false",
           underscored: "true"
 
 
-        }
-
-
-        )
+        })
 
         User.hasMany(models.Comment, {
 

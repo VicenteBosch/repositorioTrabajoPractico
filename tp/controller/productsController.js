@@ -1,19 +1,11 @@
-const db = require ("../database/models");
+const db = require("../database/models");
+const op = db.Sequelize.Op;
+const bcrypt = require("bcryptjs");
 
 const productsController = {
 
     products : function (req ,res) {
-       let productID = req.params.id;
-       let resultado = []
-       for (let i = 0; i < autos.productos.length; i++) {
-           if (productID==autos.productos[i].producto) {
-               resultado.push(autos.productos[i]);
-           }
-       } if (resultado.length === 0) {
-           return res.send("no exi");
-       } else {
-           return res.render ( "product" , { "resultado" : resultado} )
-       }
+       res.render("product")
     } ,
 
     add : function (req ,res) {
@@ -21,23 +13,40 @@ const productsController = {
     } ,
 
     search : function(req,res){
-        res.send("search")
+        
+        let buscador = req.query.search;
+    
+        db.Product.findAll({
+            where: {
+
+            [op.or] : [ {nombre_producto: {[op.like]: "%" + buscador + "%"}} ,  {descripcion_producto: {[op.like]: "%" + buscador + "%"}} ]
+
+            },
+
+            order : [["createdAt" , "DESC"] ],
+
+            include : [
+                {association : "comment" ,
+                    include: [{association : "user" }]
+                },
+                {association : "user"},
+
+            ]
+        })
+        .then(function(productos) { 
+            console.log(JSON.stringify(productos, null, 4));
+            if (productos.length > 0) {
+                return res.render("search-results", { productos: productos });
+            } else {
+                return res.send("No hay resultados para su búsqueda.");
+            }            
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+
     }
  
 }
 
 module.exports = productsController;
-
-/*function (req ,res) {
-    let searchID = req.query.search;
-    let resultado = []
-    for (let i = 0; i < autos.productos.length; i++) {
-        if (searchID==autos.productos[i].producto) {
-            resultado.push(autos.productos[i]);
-        }
-    } if (resultado.length === 0) {
-        return res.send("no existente");
-    } else {
-        return res.render ( "search-results" , { "resultado" : resultado} )
-    }
-} */

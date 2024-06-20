@@ -5,7 +5,10 @@
 
 	<body>
 		<!-- Header -->
-		<%- include('./partials/headerLogueado') %>
+
+
+
+
 		<!-- /Header -->
 
 		<!-- Datos del usuario -->
@@ -16,7 +19,7 @@
 				</div>
 				<div class="data-container col-6">
 					<div class="d-flex align-items-center">
-						<h1 class="main-title"> <%= autos.usuario.nombre %> 
+						<h1 class="main-title"> 
 							<a href="/profile/edit">
 								<i class="fas fa-cog"></i>
 							</a>
@@ -24,7 +27,7 @@
 						
 						<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 					</div>
-					<h3><%= autos.usuario.email %></h3>
+					<h3></h3>
 					<div>
 						<ul class="">
 							<li>8 productos</li>
@@ -46,23 +49,21 @@
 							<h2 class="products-title">Mis productos</h2>
 						</div>
 						<!-- Show the "ultimos" products -->
-						<% for(let i = 8; i < 12; i++) { %>
 							<div class="col-12 col-sm-6 col-lg-3">
 								<section class="product-box">
-									<a href="/products/<%= autos.productos[i].producto %>">
+									<a href="/products/">
 										<figure class="product-box_image">
-											<img src="<%= autos.productos[i].imagen %>" alt="cafetera moulinex">
+											<img src="" alt="cafetera moulinex">
 										</figure>
 										<article class="product-box_data">
-											<h2><%= autos.productos[i].producto %></h2>
-											<p><%= autos.productos[i].descripcion %></p>
-											<p><%= autos.productos[i].comentarios[0].comentario %></p>
+											<h2></h2>
+											<p></p>
+											<p></p>
 										</article>
 									</a>
 								</section>
 							</div>
-						<% } %>
-					</div>
+						</div>
 				</div>
 			
 			</div>

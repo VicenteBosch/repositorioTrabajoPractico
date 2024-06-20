@@ -97,7 +97,8 @@ const profileController = {
     logout : function (req , res) {
         
         req.session.destroy()
-        res.redirect("/profile/register")
+        res.clearCookie("user");
+        res.redirect("/profile/login")
 
     }
 
