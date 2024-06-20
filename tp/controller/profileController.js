@@ -7,7 +7,30 @@ const profileController = {
 
     profile : function (req ,res) {
         
-        res.render("profile")
+
+     
+        db.User.findOne({
+            
+            include : [
+                {association : "product" }
+                   ]
+                
+                })
+                .then(function (user) {
+                   
+                    console.log("USUARIO: " ,  JSON.stringify(user, null, 4));
+
+                    res.render("profile" , { info : user})
+                  
+                   
+    
+                })
+                .catch(function (err) {
+                    console.log(err)
+                })
+       
+       
+      
 
     } ,
 
@@ -40,7 +63,7 @@ const profileController = {
             })
             .then(function (user) {
                 req.session.user = user;
-                console.log("user : " , JSON.stringify(user, null, 4))
+               // console.log("user : " , JSON.stringify(user, null, 4))
                 if(req.body.checkbox != undefined){
                     res.cookie('user', user.id, { maxAge: 1000 * 60 * 100})
                 }
