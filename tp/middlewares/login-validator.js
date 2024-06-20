@@ -29,7 +29,7 @@ const loginValidation = [
             })
             .then(function(user){
                 if(user){
-                    const password = user.password;
+                    const password = user.contraseña;
                     const passwordCompare= bcryptjs.compareSync(value,password);
                     if(!passwordCompare){
                         throw new Error("Contraseña incorrecta")
