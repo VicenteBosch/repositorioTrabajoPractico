@@ -195,6 +195,12 @@ hr {
   
 }
 
+.editar{
+  font-size: 2.4em;
+  font-weight: 400;
+  color: black;
+}
+
 .col-sm-6{
 
 flex-direction: row;
@@ -214,7 +220,7 @@ flex-direction: row;
 .product-box{
 
   flex-direction: row;
-  height: 300px;
+  height: 350px;
   
 }
 .product-box a {
@@ -340,14 +346,18 @@ flex-direction: row;
 }
 
 .product-detail-img {
+  border-radius: 10px;
+  height: 50%;
   width: auto;
   display: block;
   margin: auto;
+  margin-top: 25px;
 }
 
 .product-detail-info {
   border-right: 1px solid var(--light-gray);
   height: 100%;
+  width: auto;
 }
 
 .product-detail-title {

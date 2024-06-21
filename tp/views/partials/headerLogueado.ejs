@@ -48,6 +48,7 @@
 			</button>
 	
 			<nav class="main-navbar">
+
 				<ul class="left-navbar">
 					<li><a href="/">Todos los productos</a></li>
 					<li><a href="/products/add">Cargar productos</a></li>
@@ -56,12 +57,8 @@
 
 				<ul class="right-navbar">
 					
-						<li><a href="/profile"> 
-							
-							<h2> <%= locals.user.nombre %></h2>
-
-							<i class="fas fa-user"></i>
-							</a>
+						<li>
+							<a href="/profile">  <%= locals.user.nombre %> <i class="fas fa-user"></i> </a>
 						</li>
 						<li>
 							<form action="/profile/logout" method="post">

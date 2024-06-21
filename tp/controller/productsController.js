@@ -5,7 +5,32 @@ const bcrypt = require("bcryptjs");
 const productsController = {
 
     products : function (req ,res) {
-       res.render("product")
+        let id = req.params.id
+
+        db.Product.findByPk(id, {
+            include: [
+              {
+                association: "comment",
+                include: [
+                  { association: "user"}
+                ]
+              },
+              {
+                association: "user"
+              }
+            ]
+          })
+        
+        .then(function (auto){
+            console.log(JSON.stringify(auto, null, 4));
+            res.render("product" , {auto : auto})
+            
+        })
+
+        .catch(function(error) {
+            console.log(error);
+        });
+
     } ,
 
     add : function (req ,res) {
@@ -34,7 +59,7 @@ const productsController = {
             ]
         })
         .then(function(productos) { 
-            console.log(JSON.stringify(productos, null, 4));
+            //console.log(JSON.stringify(productos, null, 4));
             if (productos.length > 0) {
                 return res.render("search-results", { productos: productos });
             } else {
