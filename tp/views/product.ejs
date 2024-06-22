@@ -24,7 +24,7 @@
 
 				<h2 class="products-title"> <%= auto.nombre_producto %></h2> 
 
-				<% if (locals.user) { %>
+				<% if (locals.user && auto.id_usuarios === locals.user.id_usuarios) { %>
 					<form action="/products/edit/<%= auto.id_producto %>" method="post">
 						<button class="logout" type="submit">
 							EDITAR 
@@ -67,7 +67,7 @@
 												
 												<p class="user">
 
-													<strong><a href="/profile" class="product-detail-description">  <%= auto.comment[i].user.nombre %> </a></strong>
+													<strong><a href="/profile/<%= auto.comment[i].user.id_usuarios %>" class="product-detail-description">  <%= auto.comment[i].user.nombre %> </a></strong>
 	
 												</p>
 
@@ -83,14 +83,24 @@
 
 									<% if (locals.user) { %>
 
-										<form class="form" action="" method="GET">
-											<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+										<form class="form" action="/products/comentario/<%= auto.id_producto %>" method="POST">
+											<input class="form-input" type="text" name="texto" placeholder="Agregar comentario">
+											
+											<% if (locals.errors && errors.texto) { %>
+												<div class="error">
+													<p><%= errors.texto.msg %></p>
+												</div>
+											<% } %>
+
 											<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 										</form>
+										
+									<% } else { %> 
 
-									<% } %>
+										<h2>Debes estar logueado para comentar</h2>
 								
-							
+									<% } %> 
+
 							
 						</section>
 						

@@ -25,7 +25,7 @@ const productsController = {
           })
         
         .then(function (auto){
-            //console.log(JSON.stringify(auto, null, 4));
+            console.log(JSON.stringify(auto, null, 4));
             res.render("product" , {auto : auto})
             
         })
@@ -67,7 +67,7 @@ const productsController = {
                 return res.redirect("/");
             })
             .catch(function (err) {
-                console.log("Error al guardar el usuario", err);
+                console.log(err);
             });
     }},
     
@@ -149,7 +149,6 @@ const productsController = {
                 })
                 .catch(function (error) {
                     console.log(error);
-                    res.status(500).send("Error al actualizar el producto");
                 });
         }
     },
@@ -170,13 +169,48 @@ const productsController = {
             })
             .catch(function (error ) {
                 
-                console.error("Error al borrar el producto:", error);
+                console.error(error);
                 
             });
        
 
         
+    },
+
+    comentario: function (req, res) {
+
+        const resultValidation = validationResult(req);
+
+        if (!resultValidation.isEmpty()) {
+            console.log("resultValidation:", JSON.stringify(resultValidation, null, 4));
+            return res.render("product", {
+                errors: resultValidation.mapped(),
+                oldData: req.body,
+                auto: { id_producto: req.params.id }
+                
+            })
+            
+        } else {
+
+        let  id = req.params.id
+
+        let nuevoComentario = {
+            texto_comentario: req.body.texto,
+            id_producto: id,
+            id_usuarios: req.session.user.id_usuarios
+        };
+    
+        db.Comment.create(nuevoComentario)
+        .then(function () {
+            res.redirect(`/products/${id}`);
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
     }}
+    
+    }
+
     
     
         
