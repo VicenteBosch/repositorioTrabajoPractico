@@ -39,7 +39,8 @@
 					<h3></h3>
 					<div>
 						<ul class="">
-							<li></li>
+							<h2><%= usuario.nombre %></h2>
+							<h2><%= usuario.email %></h2>
 							<li>200 seguidores</li>
 							<li>300 comentarios</li>
 						</ul>
@@ -58,25 +59,30 @@
 							<h2 class="products-title">Mis productos</h2>
 						</div>
 						<!-- Show the "ultimos" products -->
+						<% for(let i = 0; i < usuario.product.length; i++) { %>
+
 							<div class="col-12 col-sm-6 col-lg-3">
+		
 								<section class="product-box">
-									<a href="/products/">
+									<a href="/products/<%= usuario.product[i].id_producto %>">
 										<figure class="product-box_image">
-											<img src="" alt="cafetera moulinex">
+											<img src="/images/products/<%= usuario.product[i].nombre_archivo_imagen %>" alt="cafetera moulinex">
 										</figure>
+		
 										<article class="product-box_data">
-											<h2></h2>
-											<p></p>
-											<p></p>
+		
+											<h2>  <%= usuario.product[i].nombre_producto %> </h2>
+											<p>	<%= usuario.product[i].descripcion_producto %></p>
+											<p> Cargado por : <%= usuario.nombre %> </p>
+											<% console.log(usuario, "user"); %>
+				
 										</article>
+		
 									</a>
 								</section>
 							</div>
-						</div>
-				</div>
-			
-			</div>
-		</div>
+		
+				<% } %>
 		<!-- /Mis productos -->
 
 		<!-- footer -->

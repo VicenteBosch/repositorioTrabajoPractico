@@ -7,29 +7,26 @@ const profileController = {
 
     profile : function (req ,res) {
         
-
-     
-        db.User.findOne({
+        let idUser = req.params.id
+        
+        db.User.findByPk(idUser, 
             
-            include : [
-                {association : "product" }
-                   ]
+            {include : [
                 
+                {association : "product" }, 
+                
+                {association : "comment" }
+            ]}
+                  )
+      
+                  .then(function(usuario){
+                    console.log("USUARIO: " ,  JSON.stringify(usuario, null, 4));
+                    res.render("profile" , {usuario:usuario})
                 })
-                .then(function (user) {
-                   
-                    console.log("USUARIO: " ,  JSON.stringify(user, null, 4));
 
-                    res.render("profile" , { info : user})
-                  
-                   
-    
-                })
                 .catch(function (err) {
-                    console.log(err)
-                })
-       
-       
+                console.log(err)
+            })
       
 
     } ,

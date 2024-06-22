@@ -58,7 +58,7 @@
 				<ul class="right-navbar">
 					
 						<li>
-							<a href="/profile">  <%= locals.user.nombre %> <i class="fas fa-user"></i> </a>
+							<a href="/profile/<%= locals.user.id_usuarios %>">  <%= locals.user.nombre %> <i class="fas fa-user"></i> </a>
 						</li>
 						<li>
 							<form action="/profile/logout" method="post">

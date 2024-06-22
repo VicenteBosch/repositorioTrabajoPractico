@@ -37,6 +37,27 @@ const productsController = {
          res.render("product-add")
     } ,
 
+    addStore : function (req ,res) {
+                          
+        let autoNuevo = {
+            nombre_archivo_imagen: req.body.imagen,
+            nombre_producto: req.body.nombre_producto,
+            descripcion_producto: req.body.descripcion,
+            id_usuarios: req.session.user.id_usuarios 
+        };
+    
+        db.Product.create(autoNuevo)
+            .then(function (autoNuevo) {
+                
+                return res.redirect("/");
+            })
+            .catch(function (err) {
+                console.log("Error al guardar el usuario", err);
+            });
+    },
+    
+    
+
     search : function(req,res){
         
         let buscador = req.query.search;
