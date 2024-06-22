@@ -25,19 +25,23 @@
 				<h2 class="products-title"> <%= auto.nombre_producto %></h2> 
 
 				<% if (locals.user) { %>
-					<p class="product-detail-description">
-						<a href="/products/add">Editar</a>
-					</p>
+					<form action="/products/edit/<%= auto.id_producto %>" method="post">
+						<button class="logout" type="submit">
+							EDITAR 
+						</button>
+					</form>
+
+					<form action="/products/borrar/<%= auto.id_producto %>" method="post">
+						<button class="logout" type="submit">
+							BORRAR 
+						</button>
+					</form>
 				<% } %>
 
+				
 			</div>
 
-		
-
-			
-			
-			
-
+	
 			<div class="product-detail">
 				<div class="row">
 					<article class="col-12 col-lg-8 product-detail-info">

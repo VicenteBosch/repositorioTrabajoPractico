@@ -1,6 +1,9 @@
 const db = require("../database/models");
+const {validationResult} = require("express-validator");
 const op = db.Sequelize.Op;
 const bcrypt = require("bcryptjs");
+
+
 
 const productsController = {
 
@@ -91,8 +94,82 @@ const productsController = {
             console.log(error);
         });
 
-    }
+    },
+
+    edit : function (req,res) {
+
+        let idProducto = req.params.id;
+
+        db.Product.findByPk(idProducto)
+        .then(function (auto) {
+            res.render("product-edit" , {auto:auto});
+
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    
+    },
+
+    editStore: function (req, res) {
+
+        const resultValidation = validationResult(req);
+
+        if (!resultValidation.isEmpty()) {
+            console.log("resultValidation:", JSON.stringify(resultValidation, null, 4));
+            return res.render("product-edit", {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            })
+
+        } else {
+
+        let idProducto = req.params.id;
+    
+        let autoEditar = {
+            nombre_archivo_imagen: req.body.fotoNuevo,
+            nombre_producto: req.body.nombreNuevo,
+            descripcion_producto: req.body.descripcionNuevo
+        };
+    
+        db.Product.update(autoEditar, 
+            { where: { id_producto: idProducto } })
+            .then(function (data) {
+              
+                res.redirect(`/products/edit/${idProducto}`);            })
+            .catch(function (error) {
+                console.log(error);
+            }); 
+        }
+    },
+
+    borrar: function (req, res) {
+        let id = req.params.id;
+    
+            db.Comment.destroy({
+                where: { id_producto: id }
+            })
+            .then(function ()  {
+                return db.Product.destroy({
+                    where: { id_producto: id }
+                });
+            })
+            .then(function () {
+                res.redirect('/');
+            })
+            .catch(function (error ) {
+                
+                console.error("Error al borrar el producto:", error);
+                
+            });
+       
+
+        
+    }}
+    
+    
+        
  
-}
+
 
 module.exports = productsController;

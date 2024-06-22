@@ -1,6 +1,7 @@
 const db = require("../database/models")
 
 const indexController = {
+    
     home : function (req, res) {
        
      db.Product.findAll(
