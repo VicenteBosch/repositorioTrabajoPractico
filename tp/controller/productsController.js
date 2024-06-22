@@ -25,7 +25,7 @@ const productsController = {
           })
         
         .then(function (auto){
-            console.log(JSON.stringify(auto, null, 4));
+            //console.log(JSON.stringify(auto, null, 4));
             res.render("product" , {auto : auto})
             
         })
@@ -41,12 +41,24 @@ const productsController = {
     } ,
 
     addStore : function (req ,res) {
+
+        const resultValidation = validationResult(req);
                           
+        if (!resultValidation.isEmpty()) {
+            console.log("resultValidation:", JSON.stringify(resultValidation, null, 4));
+            return res.render("product-add", {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+                
+            })
+        } else {
+        
         let autoNuevo = {
+            id_usuarios: req.session.user.id_usuarios,
             nombre_archivo_imagen: req.body.imagen,
             nombre_producto: req.body.nombre_producto,
-            descripcion_producto: req.body.descripcion,
-            id_usuarios: req.session.user.id_usuarios 
+            descripcion_producto: req.body.descripcion
+            
         };
     
         db.Product.create(autoNuevo)
@@ -57,7 +69,7 @@ const productsController = {
             .catch(function (err) {
                 console.log("Error al guardar el usuario", err);
             });
-    },
+    }},
     
     
 
@@ -98,48 +110,47 @@ const productsController = {
 
     edit : function (req,res) {
 
-        let idProducto = req.params.id;
-
-        db.Product.findByPk(idProducto)
-        .then(function (auto) {
-            res.render("product-edit" , {auto:auto});
-
-        })
-        .catch(function(error) {
-            console.log(error);
-        });
+       res.render("product-edit")
     
     },
 
     editStore: function (req, res) {
-
+        
         const resultValidation = validationResult(req);
+        let idProducto = req.params.id;
 
         if (!resultValidation.isEmpty()) {
-            console.log("resultValidation:", JSON.stringify(resultValidation, null, 4));
-            return res.render("product-edit", {
-                errors: resultValidation.mapped(),
-                oldData: req.body
-            })
 
+            console.log("resultValidation:", JSON.stringify(resultValidation, null, 4));
+
+            return db.Product.findByPk(idProducto)
+                .then(function (auto) {
+                    res.render("product-edit", {
+                        auto: auto,
+                        errors: resultValidation.mapped(),
+                        oldData: req.body
+                    });
+                })
+                .catch(function (error) {
+                    console.log(error);
+                
+                });
         } else {
 
-        let idProducto = req.params.id;
-    
-        let autoEditar = {
-            nombre_archivo_imagen: req.body.fotoNuevo,
-            nombre_producto: req.body.nombreNuevo,
-            descripcion_producto: req.body.descripcionNuevo
-        };
-    
-        db.Product.update(autoEditar, 
-            { where: { id_producto: idProducto } })
-            .then(function (data) {
-              
-                res.redirect(`/products/edit/${idProducto}`);            })
-            .catch(function (error) {
-                console.log(error);
-            }); 
+            let autoEditar = {
+                nombre_archivo_imagen: req.body.fotoNuevo,
+                nombre_producto: req.body.nombreNuevo,
+                descripcion_producto: req.body.descripcionNuevo
+            };
+
+            db.Product.update(autoEditar, { where: { id_producto: idProducto } })
+                .then(function (data) {
+                    res.redirect(`/products/edit/${idProducto}`);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    res.status(500).send("Error al actualizar el producto");
+                });
         }
     },
 

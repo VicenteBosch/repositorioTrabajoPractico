@@ -29,15 +29,35 @@
 					<ul >
 						<li><label for="imagen">Imagen:</label></li>
 							
-							<input type="file" id="imagen" name="imagen"></li>
+							<input type="file" id="imagen" name="imagen" 
+							value="<%= locals.oldData && oldData.imagen ? oldData.imagen : null %>"></li>
+							<% if (locals.errors&& errors.imagen) { %>
+								<div class="error">
+									<%= errors.imagen.msg %>
+								</div>
+								<% } %>
 						
 						<li><label for="nombre_producto">Nombre del Producto:</label></li>
 						
-							<input type="text" id="nombre_producto" name="nombre_producto"></li>
+							<input type="text" id="nombre_producto" name="nombre_producto"
+							value="<%= locals.oldData && oldData.nombre_producto ? oldData.nombre_producto : null %>"></li>
+							<% if (locals.errors&& errors.nombre_producto) { %>
+								<div class="error">
+									<%= errors.nombre_producto.msg %>
+								</div>
+								<% } %>
 						
 						<li><label for="descripcion">Descripción:</label></li>
 							
-							<input type="text" id="descripcion" name="descripcion"></li>
+							<input type="text" id="descripcion" name="descripcion" 
+							value="<%= locals.oldData && oldData.descripcion ? oldData.descripcion : null %>">
+							</li>
+							<% if (locals.errors&& errors.descripcion) { %>
+								<div class="error">
+									<%= errors.descripcion.msg %>
+								</div>
+								<% } %>
+						
 						
 						<li><input type="submit" value="Agregar Producto"></li>
 					</ul>

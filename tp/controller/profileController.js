@@ -20,7 +20,7 @@ const profileController = {
                   )
       
                   .then(function(usuario){
-                    console.log("USUARIO: " ,  JSON.stringify(usuario, null, 4));
+                    //console.log("USUARIO: " ,  JSON.stringify(usuario, null, 4));
                     res.render("profile" , {usuario:usuario})
                 })
 

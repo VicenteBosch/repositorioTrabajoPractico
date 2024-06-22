@@ -9,7 +9,7 @@ const indexController = {
         {include: [{association: "user"}], order: [["createdAt" , "DESC"]]}
      )
         .then(function(productos) { 
-            console.log(JSON.stringify(productos, null, 4));
+            //console.log(JSON.stringify(productos, null, 4));
             return res.render("index", { productos: productos });
         })
         .catch(function(error) {

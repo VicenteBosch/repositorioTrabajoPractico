@@ -28,29 +28,32 @@
 					<ul>
 
 						<li><label for="fotoNueva"> Foto del producto</label></li>
-						<li class = "formularios"><input type="file" id="fotoNuevo" name="fotoNuevo"></li>
+						<li class = "formularios"><input type="file" id="fotoNuevo" name="fotoNuevo"
+							value="<%= locals.oldData && oldData.fotoNuevo ? oldData.fotoNuevo : null %>"></li>
 
-                        <% if (locals.errors && errors.password) { %>
+                        <% if (locals.errors && errors.fotoNuevo) { %>
                             <div class="error">
-                                <p><%= errors.password.msg %></p>
+                                <p><%= errors.fotoNuevo.msg %></p>
                             </div>
                         <% } %>
 						
 						<li><label for="nombreNuevo"> Nombre del producto</label></li>
-						<li class = "formularios"><input type="text" id="nombreNuevo" name="nombreNuevo"></li>
+						<li class = "formularios"><input type="text" id="nombreNuevo" name="nombreNuevo"
+							value="<%= locals.oldData && oldData.nombreNuevo ? oldData.nombreNuevo : null %>"></li>
 
-						<% if (locals.errors && errors.password) { %>
+						<% if (locals.errors && errors.nombreNuevo) { %>
                             <div class="error">
-                                <p><%= errors.password.msg %></p>
+                                <p><%= errors.nombreNuevo.msg %></p>
                             </div>
                         <% } %>
 
 						<li><label for="descripcionNuevo">Descripcion del producto</label></li>
-						<li class = "formularios"><input type="text" id="descripcionNuevo" name="descripcionNuevo"></li>
+						<li class = "formularios"><input type="text" id="descripcionNuevo" name="descripcionNuevo"
+							value="<%= locals.oldData && oldData.descripcionNuevo ? oldData.descripcionNuevo : null %>"></li>
 						
-                        <% if (locals.errors && errors.password) { %>
+                        <% if (locals.errors && errors.descripcionNuevo) { %>
                             <div class="error">
-                                <p><%= errors.password.msg %></p>
+                                <p><%= errors.descripcionNuevo.msg %></p>
                             </div>
                         <% } %>
 
