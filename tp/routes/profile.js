@@ -10,7 +10,7 @@ const profileEditValidtions = require("../middlewares/profileEdit-validator")
 router.get("/login" , profileController.login);
 router.get("/register" , profileController.register)
 router.get("/:id" , profileController.profile);
-router.get("/edit/:id" , profileController.profileEdit);
+router.get("/edit/:perfil" , profileController.profileEdit);
 
 
 router.post("/register" , registerValidtions, profileController.registerStore);

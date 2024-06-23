@@ -108,51 +108,57 @@ const productsController = {
 
     },
 
-    edit : function (req,res) {
+    editProduct : function (req,res) {
 
-       res.render("product-edit")
+        let idProducto = req.params.id;
+
+        db.Product.findByPk(idProducto)
+            .then(function (auto) {
+                console.log("AUTO ES : " , JSON.stringify(auto, null, 4))
+                return res.render("product-edit", { auto: auto });
+                
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     
     },
 
-    editStore: function (req, res) {
-        
+    editProductStore: function (req, res) {
         const resultValidation = validationResult(req);
         let idProducto = req.params.id;
-
-        if (!resultValidation.isEmpty()) {
-
-            console.log("resultValidation:", JSON.stringify(resultValidation, null, 4));
-
-            return db.Product.findByPk(idProducto)
-                .then(function (auto) {
-                    res.render("product-edit", {
-                        auto : auto,
+    
+        db.Product.findByPk(idProducto)
+            .then(function (auto) {
+                if (!resultValidation.isEmpty()) {
+                    return res.render("product-edit", {
                         errors: resultValidation.mapped(),
-                        oldData: req.body
+                        oldData: req.body,
+                        auto: auto
                     });
-                })
-                .catch(function (error) {
-                    console.log(error);
-                
-                });
-        } else {
+                } else {
+                    let idProducto = req.params.id;
 
-            let autoEditar = {
-                nombre_archivo_imagen: req.body.fotoNuevo,
-                nombre_producto: req.body.nombreNuevo,
-                descripcion_producto: req.body.descripcionNuevo
-            };
-
-            db.Product.update(autoEditar, { where: { id_producto: idProducto } })
-                .then(function (data) {
-                    res.redirect(`/products/edit/${idProducto}`);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-        }
+                    let autoEditar = {
+                        nombre_archivo_imagen: req.body.fotoNuevo,
+                        nombre_producto: req.body.nombreNuevo,
+                        descripcion_producto: req.body.descripcionNuevo
+                    };
+    
+                    db.Product.update(autoEditar, { where: { id_producto: idProducto } })
+                        .then(function () {
+                            res.redirect(`/products/edit/${idProducto}`);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     },
-
+    
     borrar: function (req, res) {
         let id = req.params.id;
     
@@ -218,7 +224,6 @@ const productsController = {
         })
         .catch(function (error) {
             console.error(error);
-            res.status(500).send("Error interno del servidor");
         });
     }
   }

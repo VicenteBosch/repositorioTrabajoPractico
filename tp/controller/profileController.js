@@ -32,7 +32,7 @@ const profileController = {
     } ,
 
     profileEdit : function (req ,res) {
-        let id = req.params.id
+        let id = req.params.perfil
         
         db.User.findByPk(id)
 
@@ -61,7 +61,8 @@ const profileController = {
         } else {
 
 
-        let id = req.params.id
+        let id = req.params.perfil
+
         let profileEdit = {
 
             nombre : req.body.usuario,
@@ -76,7 +77,7 @@ const profileController = {
         db.User.update(profileEdit , {where: { id_usuarios: id}})
        
         .then(function (data) {
-            res.redirect(`/profile/edit/${id}`);
+            res.redirect(`/profile/${id}`);
         })
         .catch(function (error) {
             console.log(error);
@@ -110,7 +111,7 @@ const profileController = {
                 req.session.user = user;
                // console.log("user : " , JSON.stringify(user, null, 4))
                 if(req.body.checkbox != undefined){
-                    res.cookie('user', user.id_usuarios, { maxAge: 1000 * 60 * 100})
+                    res.cookie('user', req.session.user.id_usuarios, { maxAge: 1000 * 60 * 100})
                 }
                 res.redirect("/")
 
