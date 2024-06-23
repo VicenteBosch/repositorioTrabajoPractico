@@ -27,9 +27,9 @@
 				<!-- Show the "ultimos" products -->
 				<form action="/products/add" method="post">
 					<ul >
-						<li><label for="imagen">Imagen:</label></li>
+						<li><label class="form-label" for="imagen">Imagen:</label></li>
 							
-							<input type="file" id="imagen" name="imagen" 
+							<input type="file" id="imagen" name="imagen" class="form-label"
 							value="<%= locals.oldData && oldData.imagen ? oldData.imagen : null %>"></li>
 							<% if (locals.errors&& errors.imagen) { %>
 								<div class="error">
@@ -37,9 +37,9 @@
 								</div>
 								<% } %>
 						
-						<li><label for="nombre_producto">Nombre del Producto:</label></li>
+						<li><label class="form-label" for="nombre_producto">Nombre del Producto:</label></li>
 						
-							<input type="text" id="nombre_producto" name="nombre_producto"
+							<input type="text" id="nombre_producto" name="nombre_producto" class="form-label"
 							value="<%= locals.oldData && oldData.nombre_producto ? oldData.nombre_producto : null %>"></li>
 							<% if (locals.errors&& errors.nombre_producto) { %>
 								<div class="error">
@@ -47,9 +47,9 @@
 								</div>
 								<% } %>
 						
-						<li><label for="descripcion">Descripción:</label></li>
+						<li><label class="form-label" for="descripcion">Descripción:</label></li>
 							
-							<input type="text" id="descripcion" name="descripcion" 
+							<input type="text" id="descripcion" name="descripcion" class="form-label"
 							value="<%= locals.oldData && oldData.descripcion ? oldData.descripcion : null %>">
 							</li>
 							<% if (locals.errors&& errors.descripcion) { %>

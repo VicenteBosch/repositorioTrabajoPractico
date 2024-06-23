@@ -126,7 +126,7 @@ const productsController = {
             return db.Product.findByPk(idProducto)
                 .then(function (auto) {
                     res.render("product-edit", {
-                        auto: auto,
+                        auto : auto,
                         errors: resultValidation.mapped(),
                         oldData: req.body
                     });

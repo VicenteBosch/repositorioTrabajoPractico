@@ -32,8 +32,56 @@ const profileController = {
     } ,
 
     profileEdit : function (req ,res) {
-        res.render("profile-edit")
+        let id = req.params.id
+        
+        db.User.findByPk(id)
+
+        .then(function (user) {
+            res.render("profile-edit" ,{user : user} )
+        })
+        
+        .catch(function (error) {
+            console.log(error);
+        });
+        
     },
+
+    profileEditStore : function (req , res) {
+       
+        const resultValidation = validationResult(req);
+
+         if (!resultValidation.isEmpty()) {
+
+            //console.log("resultValidation:", JSON.stringify(resultValidation, null, 4));
+            return res.render("product-edit", {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            })
+
+        } else {
+
+
+        let id = req.params.id
+        let profileEdit = {
+
+            nombre : req.body.usuario,
+            email : req.body.email,
+            contraseña : req.body.contraseña,
+            fecha_de_nacimiento : req.body.fecha_de_nacimiento,
+            dni : req.body.documento,
+            foto_de_perfil : req.body.foto_perfil
+
+        }
+
+        db.User.update(profileEdit , {where: { id_usuarios: id}})
+       
+        .then(function (data) {
+            res.redirect(`/profile/edit/${id}`);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }},
 
     login : function (req ,res) {
             res.render("login")

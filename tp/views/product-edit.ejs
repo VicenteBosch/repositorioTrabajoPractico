@@ -27,8 +27,8 @@
 				<form action="/products/edit/<%= auto.id_producto %>"  method="POST" novalidate>
 					<ul>
 
-						<li><label for="fotoNueva"> Foto del producto</label></li>
-						<li class = "formularios"><input type="file" id="fotoNuevo" name="fotoNuevo"
+						<li><label class="form-label" for="fotoNuevo"> Foto del producto</label></li>
+						<li class = "formularios"><input type="file" id="fotoNuevo" name="fotoNuevo" class="form-label"
 							value="<%= locals.oldData && oldData.fotoNuevo ? oldData.fotoNuevo : null %>"></li>
 
                         <% if (locals.errors && errors.fotoNuevo) { %>
@@ -37,8 +37,8 @@
                             </div>
                         <% } %>
 						
-						<li><label for="nombreNuevo"> Nombre del producto</label></li>
-						<li class = "formularios"><input type="text" id="nombreNuevo" name="nombreNuevo"
+						<li><label class="form-label" for="nombreNuevo"> Nombre del producto</label></li>
+						<li class = "formularios"><input type="text" id="nombreNuevo" name="nombreNuevo" class="form-label"
 							value="<%= locals.oldData && oldData.nombreNuevo ? oldData.nombreNuevo : null %>"></li>
 
 						<% if (locals.errors && errors.nombreNuevo) { %>
@@ -47,8 +47,8 @@
                             </div>
                         <% } %>
 
-						<li><label for="descripcionNuevo">Descripcion del producto</label></li>
-						<li class = "formularios"><input type="text" id="descripcionNuevo" name="descripcionNuevo"
+						<li><label class="form-label" for="descripcionNuevo">Descripcion del producto</label></li>
+						<li class = "formularios"><input type="text" id="descripcionNuevo" name="descripcionNuevo" class="form-label"
 							value="<%= locals.oldData && oldData.descripcionNuevo ? oldData.descripcionNuevo : null %>"></li>
 						
                         <% if (locals.errors && errors.descripcionNuevo) { %>
