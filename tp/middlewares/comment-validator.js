@@ -6,8 +6,6 @@ const commentValidations = [
     body("texto")
         .notEmpty()
         .withMessage('Este campo es obligatorio')
+];
 
-
-]
-    
-module.exports= commentValidations;
+module.exports = commentValidations;

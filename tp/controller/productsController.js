@@ -25,7 +25,7 @@ const productsController = {
           })
         
         .then(function (auto){
-            console.log(JSON.stringify(auto, null, 4));
+            //console.log(JSON.stringify(auto, null, 4));
             res.render("product" , {auto : auto})
             
         })
@@ -178,43 +178,50 @@ const productsController = {
     },
 
     comentario: function (req, res) {
-
         const resultValidation = validationResult(req);
-
-        if (!resultValidation.isEmpty()) {
-            console.log("resultValidation:", JSON.stringify(resultValidation, null, 4));
-            return res.render("product", {
-                errors: resultValidation.mapped(),
-                oldData: req.body,
-                auto: { id_producto: req.params.id }
-                
-            })
-            
-        } else {
-
-        let  id = req.params.id
-
-        let nuevoComentario = {
-            texto_comentario: req.body.texto,
-            id_producto: id,
-            id_usuarios: req.session.user.id_usuarios
-        };
+        let id = req.params.id;
     
-        db.Comment.create(nuevoComentario)
-        .then(function () {
-            res.redirect(`/products/${id}`);
+        db.Product.findByPk(id, {
+            include: [
+                {
+                    association: "comment",
+                    include: [{ association: "user" }]
+                },
+                {
+                    association: "user"
+                }
+            ]
+        })
+        .then(function (auto) {
+            if (!resultValidation.isEmpty()) {
+                res.render("product", {
+                    errors: resultValidation.mapped(),
+                    oldData: req.body,
+                    auto: auto
+                });
+            } else {
+                let nuevoComentario = {
+                    texto_comentario: req.body.texto,
+                    id_producto: id,
+                    id_usuarios: req.session.user.id_usuarios
+                };
+    
+                db.Comment.create(nuevoComentario)
+                .then(function () {
+                    res.redirect(`/products/${id}`);
+                })
+                .catch(function (error) {
+                    console.error(error);
+                    res.render("product", { auto: auto }); 
+                });
+            }
         })
         .catch(function (error) {
             console.error(error);
+            res.status(500).send("Error interno del servidor");
         });
-    }}
-    
     }
-
-    
-    
-        
- 
+  }
 
 
 module.exports = productsController;

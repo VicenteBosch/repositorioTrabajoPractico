@@ -62,7 +62,7 @@ const profileController = {
                 req.session.user = user;
                // console.log("user : " , JSON.stringify(user, null, 4))
                 if(req.body.checkbox != undefined){
-                    res.cookie('user', user.id, { maxAge: 1000 * 60 * 100})
+                    res.cookie('user', user.id_usuarios, { maxAge: 1000 * 60 * 100})
                 }
                 res.redirect("/")
 
