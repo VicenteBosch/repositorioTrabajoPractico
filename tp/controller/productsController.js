@@ -147,7 +147,7 @@ const productsController = {
     
                     db.Product.update(autoEditar, { where: { id_producto: idProducto } })
                         .then(function () {
-                            res.redirect(`/products/edit/${idProducto}`);
+                            res.redirect(`/products/${idProducto}`);
                         })
                         .catch(function (error) {
                             console.log(error);

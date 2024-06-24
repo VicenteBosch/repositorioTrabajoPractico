@@ -16,7 +16,7 @@ router.get("/edit/:perfil" , profileController.profileEdit);
 router.post("/register" , registerValidtions, profileController.registerStore);
 router.post("/login" , loginValidations, profileController.loginStore);
 router.post("/logout" , profileController.logout);
-router.post("/edit/:id" , profileEditValidtions , profileController.profileEditStore )
+router.post("/edit/:perfil" , profileEditValidtions , profileController.profileEditStore )
 
 
 module.exports = router;

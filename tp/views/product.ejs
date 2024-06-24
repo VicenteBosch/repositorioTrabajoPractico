@@ -25,7 +25,7 @@
                 <article class="col-12 col-lg-8 product-detail-info">
                     <img src="/images/products/<%= auto.nombre_archivo_imagen %>" alt="" class="product-detail-img">
                     <p class="product-detail-description"><%= auto.descripcion_producto %></p>
-                    <p class="product-detail-description">Cargado por : <%= auto.user.nombre %></p>
+                     <a href="/profile/<%= auto.user.id_usuarios %>"><p class="product-detail-description">Cargado por : <%= auto.user.nombre %></p></a>
                 </article>
                 <div class="col-12 col-lg-4">
                     <section class="comments">
