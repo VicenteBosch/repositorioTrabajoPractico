@@ -27,7 +27,7 @@ const profileController = {
         
         db.User.findByPk(id)
         .then(function (user) {
-            console.log("usuario :", JSON.stringify(user, null, 4));
+            //console.log("usuario :", JSON.stringify(user, null, 4));
 
             res.render("profile-edit", { user: user });
         })
@@ -54,7 +54,7 @@ const profileController = {
                 let profileEdit = {
                     nombre: req.body.usuario,
                     email: req.body.email,
-                    contraseña: req.body.contraseña,
+                    contraseña: bcrypt.hashSync(req.body.contraseña, 10), 
                     fecha_de_nacimiento: req.body.fecha_de_nacimiento,
                     dni: req.body.documento,
                     foto_de_perfil: req.body.foto_perfil

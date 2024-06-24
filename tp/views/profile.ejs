@@ -33,13 +33,28 @@
 								<i class="fas fa-cog"></i>
 							</a>
 						</h1>
-						<form action="/profile/edit/<%= usuario.id_usuarios%>">
+
+						<% if (locals.user && usuario.id_usuarios === locals.user.id_usuarios) { %>
+							<form action="/profile/edit/<%= usuario.id_usuarios%>">
 							
 								<button class="logout" type="submit">
 									<a class="btn mt-3 ml-4" href="/profile/edit/<%= usuario.id_usuarios%>">EDITAR PERFIL</a>
 								</button>
 							
 						</form>
+						<% } else { %>
+	
+							<form action="">
+							
+								<button class="logout" type="submit">
+									<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+								</button>
+							
+						</form>
+	
+						<% } %>
+
+						
 						
 					</div>
 					<h3></h3>

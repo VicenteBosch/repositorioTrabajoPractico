@@ -78,6 +78,7 @@
 
 							<h2>  <%= productos[i].nombre_producto %> </h2>
 							<p>	<%= productos[i].descripcion_producto %></p>
+							<a href="/profile/<%= productos[i].user.id_usuarios %>"><p> Cargado por : <%= productos[i].user.nombre %></p></a> 
 
 						</article>
 

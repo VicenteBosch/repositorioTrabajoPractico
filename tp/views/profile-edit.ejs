@@ -20,19 +20,8 @@
 		<!-- Novedades -->
 		<div class="container products-wrapper">
 			<div class="row">
-				<div class="col-12">
 					
-					<% if (locals.user && user.id_usuarios === locals.user.id_usuarios) { %>
-						<h2 class="products-title">Editar mi perfil</h2>
-					<% } else { %>
-
-						<h2 class="products-title">Seguir</h2>
-
-					<% } %>
-					
-					
-					
-				</div>
+				
 				<!-- Show the "ultimos" products -->
 				<form action="/profile/edit/<%= locals.user.id_usuarios %>" method="POST" novalidate>
 					<ul>

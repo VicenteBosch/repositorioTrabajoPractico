@@ -179,6 +179,7 @@ hr {
   overflow: hidden;
   transition: 300ms;
   padding: 5px;
+  height: 350px;
   
 }
 
@@ -190,6 +191,7 @@ flex-direction: row;
 
 .row{
   display: flex;
+  padding: 25px;
   
 }
 .rows{
@@ -213,7 +215,7 @@ flex-direction: row;
 }
 
 .product-box_data {
-  padding: 30px;
+  padding: 10px;
   font-size: 10px;
   text-align: center;
 
@@ -550,7 +552,7 @@ textarea.form-input {
 }
 
 .logo{
-  border-radius: 100px;
+  border-radius: 10px;
 }
 
 .col-12{
