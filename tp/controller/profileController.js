@@ -53,7 +53,7 @@ const profileController = {
          if (!resultValidation.isEmpty()) {
 
             //console.log("resultValidation:", JSON.stringify(resultValidation, null, 4));
-            return res.render("product-edit", {
+            return res.render("profile-edit", {user : user} , {
                 errors: resultValidation.mapped(),
                 oldData: req.body
             })
@@ -74,7 +74,7 @@ const profileController = {
 
         }
 
-        db.User.update(profileEdit , {where: { id_usuarios: id}})
+        db.User.update(profileEdit, { where: { id_usuarios: id } })
        
         .then(function (data) {
             res.redirect(`/profile/${id}`);
