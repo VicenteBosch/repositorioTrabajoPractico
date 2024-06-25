@@ -1,5 +1,5 @@
-const {body} = require("express-validator");
-const db= require("../database/models")
+const { body } = require("express-validator");
+const db = require("../database/models")
 const bcryptjs = require('bcryptjs');
 
 const registerValidtions = [
@@ -13,28 +13,28 @@ const registerValidtions = [
         .withMessage("debes completar tu email")
         .isEmail()
         .withMessage("Debes escribir un formato de correo valido")
-        .custom(function(value, {req}){
+        .custom(function (value, { req }) {
 
-                return db.User.findOne({
+            return db.User.findOne({
 
-                    where: {email: value}
-                })
+                where: { email: value }
+            })
                 .then(function (user) {
 
                     if (user) {
                         throw new Error("El mail ingresado ya existe, intente con otro")
                     }
-                    
+
                 })
 
 
         })
     ,
-    
+
     body("password")
         .notEmpty()
         .withMessage("Debes completar contraseña")
-        .isLength({min:4}).withMessage("La contraseña debe tener almenos 4 caracteres")
+        .isLength({ min: 4 }).withMessage("La contraseña debe tener almenos 4 caracteres")
 
 ]
 

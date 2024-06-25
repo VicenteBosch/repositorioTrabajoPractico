@@ -1,60 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
-    <!-- Include Head -->
-    <%- include('./partials/head') %>
+<!-- Include Head -->
+<%- include('./partials/head') %>
 
     <body>
         <!-- Header -->
         <%- include('./partials/header') %>
-        <!-- /Header -->
+            <!-- /Header -->
 
-        <!-- Novedades -->
-        <div class="container products-wrapper">
-            <div class="row">
-				
-                <div class="col-12">
-                    <h2 class="products-title">Iniciar sesion</h2>
+            <!-- Novedades -->
+            <div class="container products-wrapper">
+                <div class="row">
+
+                    <div class="col-12">
+                        <h2 class="products-title">Iniciar sesion</h2>
+                    </div>
+
+                    <form action="/profile/login" method="POST" novalidate>
+
+                        <div>
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-input" id="email" name="email" placeholder="email"
+                                value="<%= locals.oldData !== undefined && oldData.email ? oldData.email : "" %>">
+
+                            <% if (locals.errors && errors.email) { %>
+                                <div class="error">
+                                    <p>
+                                        <%= errors.email.msg %>
+                                    </p>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <div>
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" id="password" name="password" placeholder="contraseña"
+                                class="form-input"
+                                value="<%= locals.oldData !== undefined && oldData.password ? oldData.password : "" %>">
+
+                            <% if (locals.errors && errors.password) { %>
+                                <div class="error">
+                                    <p>
+                                        <%= errors.password.msg %>
+                                    </p>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <div>
+                            <label for="chekbox" class="form-label">Recordarme</label>
+                            <input type="checkbox" id="checkbox" name="checkbox" placeholder="checkbox"
+                                class="form-label" value="">
+                        </div>
+
+                        <button type="submit" class="form-input">Iniciar sesion</button>
+                    </form>
                 </div>
-
-                <form action="/profile/login" method="POST" novalidate>
-
-                    <div>
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-input" id="email" name="email" placeholder="email" 
-                               value="<%= locals.oldData !== undefined && oldData.email ? oldData.email : "" %>">
-
-                        <% if (locals.errors && errors.email) { %>
-                            <div class="error">
-                                <p><%= errors.email.msg %></p>
-                            </div>
-                        <% } %>
-                    </div>
-
-                    <div>
-                        <label for="password"  class="form-label" >Contraseña</label>
-                        <input type="password" id="password" name="password" placeholder="contraseña" class="form-input"
-                               value="<%= locals.oldData !== undefined && oldData.password ? oldData.password : "" %>">
-
-                        <% if (locals.errors && errors.password) { %>
-                            <div class="error">
-                                <p><%= errors.password.msg %></p>
-                            </div>
-                        <% } %>
-                    </div>
-
-                    <div>
-                        <label for="chekbox"  class="form-label" >Recordarme</label>
-                        <input type="checkbox" id="checkbox" name="checkbox" placeholder="checkbox" class="form-input" value="">
-                    </div>
-
-                    <button type="submit" class="bottom">Iniciar sesion</button>
-                </form>
             </div>
-        </div>
-        <!-- /Novedades -->
+            <!-- /Novedades -->
 
-        <!-- footer -->
-        <%- include('./partials/footer') %>
-        <!-- /footer -->
+            <!-- footer -->
+            <%- include('./partials/footer') %>
+                <!-- /footer -->
     </body>
+
 </html>

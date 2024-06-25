@@ -1,64 +1,88 @@
 <!DOCTYPE html>
 <html lang="es">
 <%- include('./partials/head') %>
-<body>
-    <% if (locals.user) { %>
-        <%- include('./partials/headerLogueado') %>
-    <% } else { %>
-        <%- include('./partials/header') %>
-    <% } %>
 
-    <div class="container products-wrapper">
-        <div class="d-flex align-items-center">
-            <h2 class="products-title"> <%= auto.nombre_producto %></h2>
-            <% if (locals.user && auto.id_usuarios === locals.user.id_usuarios) { %>
-                <form action="/products/edit/<%= auto.id_producto %>" method="post">
-                    <button class="logout" type="submit">EDITAR</button>
-                </form>
-                <form action="/products/borrar/<%= auto.id_producto %>" method="post">
-                    <button class="logout" type="submit">BORRAR</button>
-                </form>
-            <% } %>
-        </div>
-        <div class="product-detail">
-            <div class="row">
-                <article class="col-12 col-lg-8 product-detail-info">
-                    <img src="/images/products/<%= auto.nombre_archivo_imagen %>" alt="" class="product-detail-img">
-                    <p class="product-detail-description"><%= auto.descripcion_producto %></p>
-                     <a href="/profile/<%= auto.user.id_usuarios %>"><p class="product-detail-description">Cargado por : <%= auto.user.nombre %></p></a>
-                </article>
-                <div class="col-12 col-lg-4">
-                    <section class="comments">
-                        
-                            <article >
-                                <% for( let i = 0; i < auto.comment.length; i++ ) { %>
-                                    <img src="/images/users/<%= auto.comment[i].user.foto_de_perfil %>" alt="">
-
-                                    <p class="user">
-                                        <strong><a href="/profile/<%= auto.comment[i].user.id_usuarios %>" class="product-detail-description">  <%= auto.comment[i].user.nombre %> </a></strong>
-                                    </p>
-                                    <p class="product-detail-description"> <%= auto.comment[i].texto_comentario %> </p>
-                                <% } %>
-                            </article>
-
-                        <% if (locals.user) { %>
-                            <form class="form" action="/products/comentario/<%= auto.id_producto %>" method="POST">
-                                <input class="form-input" type="text" name="texto" placeholder="Agregar comentario">
-                                <% if (locals.errors && errors.texto) { %>
-                                    <div class="error">
-                                        <p><%= errors.texto.msg %></p>
-                                    </div>
-                                <% } %>
-                                <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-                            </form>
-                        <% } else { %>
-                            <h2>Debes estar logueado para comentar</h2>
+    <body>
+        <% if (locals.user) { %>
+            <%- include('./partials/headerLogueado') %>
+                <% } else { %>
+                    <%- include('./partials/header') %>
                         <% } %>
-                    </section>
-                </div>
-            </div>
-        </div>
-    </div>
-    <%- include('./partials/footer') %>
-</body>
+
+                            <div class="container products-wrapper">
+                                <div class="d-flex align-items-center">
+                                    <h2 class="products-title">
+                                        <%= auto.nombre_producto %>
+                                    </h2>
+                                    <% if (locals.user && auto.id_usuarios===locals.user.id_usuarios) { %>
+                                        <form action="/products/edit/<%= auto.id_producto %>" method="post">
+                                            <button class="logout" type="submit">EDITAR</button>
+                                        </form>
+                                        <form action="/products/borrar/<%= auto.id_producto %>" method="post">
+                                            <button class="logout" type="submit">BORRAR</button>
+                                        </form>
+                                        <% } %>
+                                </div>
+                                <div class="product-detail">
+                                    <div class="row">
+                                        <article class="col-12 col-lg-8 product-detail-info">
+                                            <img src="/images/products/<%= auto.nombre_archivo_imagen %>" alt=""
+                                                class="product-detail-img">
+                                            <p class="product-detail-description">
+                                                <%= auto.descripcion_producto %>
+                                            </p>
+                                            <a href="/profile/<%= auto.user.id_usuarios %>">
+                                                <p class="product-detail-description">Cargado por : <%= auto.user.nombre
+                                                        %>
+                                                </p>
+                                            </a>
+                                        </article>
+                                        <div class="col-12 col-lg-4">
+                                            <section class="comments">
+
+                                                <article>
+                                                    <% for( let i=0; i < auto.comment.length; i++ ) { %>
+                                                        <img src="/images/users/<%= auto.comment[i].user.foto_de_perfil %>"
+                                                            alt="">
+
+                                                        <p class="user">
+                                                            <strong><a
+                                                                    href="/profile/<%= auto.comment[i].user.id_usuarios %>"
+                                                                    class="product-detail-description">
+                                                                    <%= auto.comment[i].user.nombre %>
+                                                                </a></strong>
+                                                        </p>
+                                                        <p class="product-detail-description">
+                                                            <%= auto.comment[i].texto_comentario %>
+                                                        </p>
+                                                        <% } %>
+                                                </article>
+
+                                                <% if (locals.user) { %>
+                                                    <form class="form"
+                                                        action="/products/comentario/<%= auto.id_producto %>"
+                                                        method="POST">
+                                                        <input class="form-input" type="text" name="texto"
+                                                            placeholder="Agregar comentario">
+                                                        <% if (locals.errors && errors.texto) { %>
+                                                            <div class="error">
+                                                                <p>
+                                                                    <%= errors.texto.msg %>
+                                                                </p>
+                                                            </div>
+                                                            <% } %>
+                                                                <button type="submit" class="buy-now-button">AGREGAR
+                                                                    COMENTARIO</button>
+                                                    </form>
+                                                    <% } else { %>
+                                                        <h2>Debes estar logueado para comentar</h2>
+                                                        <% } %>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <%- include('./partials/footer') %>
+    </body>
+
 </html>

@@ -1,59 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
-	<!-- Include Head -->
-	<%- include('./partials/head') %>
+<!-- Include Head -->
+<%- include('./partials/head') %>
 
 	<body>
 		<!-- Header -->
 		<% if (locals.user) { %>
 			<%- include('./partials/headerLogueado') %>
-		<% } else { %>
-			<%- include('./partials/header') %>
-		<% } %>
-		<!-- /Header -->
-
-		<!-- Novedades -->
-		<div class="container products-wrapper">
-			<div class="row">
-				<div class="col-12">
-					<h2 class="products-title">Editar mi producto</h2>
-				</div>
-				<!-- Show the "ultimos" products -->
-				<form action="/products/edit/<%= auto.id_producto %>" method="POST" novalidate>
-					<ul>
-						<li><label class="form-label" for="fotoNuevo"> Foto del producto</label></li>
-						<li class="form"><input type="text" id="fotoNuevo" name="fotoNuevo" class="form-input" value="<%= locals.oldData && oldData.fotoNuevo ? oldData.fotoNuevo : auto.nombre_archivo_imagen %>"></li>
-						<% if (locals.errors && errors.fotoNuevo) { %>
-							<div class="error">
-								<p><%= errors.fotoNuevo.msg %></p>
-							</div>
+				<% } else { %>
+					<%- include('./partials/header') %>
 						<% } %>
+							<!-- /Header -->
 
-						<li><label class="form-label" for="nombreNuevo"> Nombre del producto</label></li>
-						<li class="formularios"><input type="text" id="nombreNuevo" name="nombreNuevo" class="form-input" value="<%= locals.oldData && oldData.nombreNuevo ? oldData.nombreNuevo : auto.nombre_producto %>"></li>
-						<% if (locals.errors && errors.nombreNuevo) { %>
-							<div class="error">
-								<p><%= errors.nombreNuevo.msg %></p>
+							<!-- Novedades -->
+							<div class="container products-wrapper">
+								<div class="row">
+									<div class="col-12">
+										<h2 class="products-title">Editar mi producto</h2>
+									</div>
+									<!-- Show the "ultimos" products -->
+									<form action="/products/edit/<%= auto.id_producto %>" method="POST" novalidate>
+										<ul>
+											<li><label class="form-label" for="fotoNuevo"> Foto del producto</label>
+											</li>
+											<li class="form"><input type="text" id="fotoNuevo" name="fotoNuevo"
+													class="form-input"
+													value="<%= locals.oldData && oldData.fotoNuevo ? oldData.fotoNuevo : auto.nombre_archivo_imagen %>">
+											</li>
+											<% if (locals.errors && errors.fotoNuevo) { %>
+												<div class="error">
+													<p>
+														<%= errors.fotoNuevo.msg %>
+													</p>
+												</div>
+												<% } %>
+
+													<li><label class="form-label" for="nombreNuevo"> Nombre del
+															producto</label></li>
+													<li class="formularios"><input type="text" id="nombreNuevo"
+															name="nombreNuevo" class="form-input"
+															value="<%= locals.oldData && oldData.nombreNuevo ? oldData.nombreNuevo : auto.nombre_producto %>">
+													</li>
+													<% if (locals.errors && errors.nombreNuevo) { %>
+														<div class="error">
+															<p>
+																<%= errors.nombreNuevo.msg %>
+															</p>
+														</div>
+														<% } %>
+
+															<li><label class="form-label" for="descripcionNuevo">
+																	Descripción del producto</label></li>
+															<li class="formularios"><input type="text"
+																	id="descripcionNuevo" name="descripcionNuevo"
+																	value="<%= locals.oldData && oldData.descripcionNuevo ? oldData.descripcionNuevo : auto.descripcion_producto %>"
+																	class="form-input"></li>
+															<% if (locals.errors && errors.descripcionNuevo) { %>
+																<div class="error">
+																	<p>
+																		<%= errors.descripcionNuevo.msg %>
+																	</p>
+																</div>
+																<% } %>
+
+																	<button type="submit" class="form-input"> Guardar
+																		cambios</button>
+										</ul>
+									</form>
+								</div>
 							</div>
-						<% } %>
+							<!-- /Novedades -->
 
-						<li><label class="form-label" for="descripcionNuevo"> Descripción del producto</label></li>
-						<li class="formularios"><input type="text" id="descripcionNuevo" name="descripcionNuevo"  value="<%= locals.oldData && oldData.descripcionNuevo ? oldData.descripcionNuevo : auto.descripcion_producto %>" class="form-input"></li>
-						<% if (locals.errors && errors.descripcionNuevo) { %>
-							<div class="error">
-								<p><%= errors.descripcionNuevo.msg %></p>
-							</div>
-						<% } %>
-
-						<button  type="submit" class="form-input" > Guardar cambios</button>
-					</ul>
-				</form>
-			</div>
-		</div>
-		<!-- /Novedades -->
-
-		<!-- footer -->
-		<%- include('./partials/footer') %>
-		<!-- /footer -->
+							<!-- footer -->
+							<%- include('./partials/footer') %>
+								<!-- /footer -->
 	</body>
+
 </html>

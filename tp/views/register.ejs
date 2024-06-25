@@ -1,82 +1,93 @@
 <!DOCTYPE html>
 <html lang="es">
-    <!-- Include Head -->
-    <%- include('./partials/head') %>
+<!-- Include Head -->
+<%- include('./partials/head') %>
 
     <body>
         <!-- Header -->
         <%- include('./partials/header') %>
-        <!-- /Header -->
+            <!-- /Header -->
 
-        <!-- Novedades -->
-        <div class="container products-wrapper">
-            <div class="row">
-				
-                <div class="col-12">
-                    <h2 class="products-title">Registrarse</h2>
+            <!-- Novedades -->
+            <div class="container products-wrapper">
+                <div class="row">
+
+                    <div class="col-12">
+                        <h2 class="products-title">Registrarse</h2>
+                    </div>
+
+                    <form action="/profile/register" method="POST" novalidate>
+                        <div>
+                            <label for="name" class="form-label">Nombre de Usuario</label>
+                            <input type="text" id="name" name="name" placeholder="nombre" class="form-input"
+                                value="<%= locals.oldData !== undefined && oldData.name ? oldData.name : "" %>">
+
+                            <% if (locals.errors && errors.name) { %>
+                                <div class="error">
+                                    <p>
+                                        <%= errors.name.msg %>
+                                    </p>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <div>
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-input" id="email" name="email" placeholder="email"
+                                value="<%= locals.oldData !== undefined && oldData.email ? oldData.email : "" %>">
+
+                            <% if (locals.errors && errors.email) { %>
+                                <div class="error">
+                                    <p>
+                                        <%= errors.email.msg %>
+                                    </p>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <div>
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" id="password" name="password" placeholder="contraseña"
+                                class="form-input"
+                                value="<%= locals.oldData !== undefined && oldData.password ? oldData.password : "" %>">
+
+                            <% if (locals.errors && errors.password) { %>
+                                <div class="error">
+                                    <p>
+                                        <%= errors.password.msg %>
+                                    </p>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <div>
+                            <label for="fecha_de_nacimiento" class="form-label">Fecha de nacimiento</label>
+                            <input type="date" id="fecha_de_nacimiento" name="fecha_de_nacimiento"
+                                placeholder="Fecha de nacimiento" class="form-input"
+                                value="<%= locals.oldData !== undefined && oldData.fecha_de_nacimiento ? oldData.fecha_de_nacimiento : "" %>">
+                        </div>
+                        <div>
+                            <label for="dni" class="form-label">Numero de documento</label>
+                            <input type="number" id="dni" name="dni" placeholder="Numero de documento"
+                                class="form-input"
+                                value="<%= locals.oldData !== undefined && oldData.dni ? oldData.dni : "" %>">
+                        </div>
+                        <div>
+                            <label for="foto_de_perfil" class="form-label">Foto de perfil</label>
+                            <input type="file" id="foto_de_perfil" name="foto_de_perfil" placeholder="Foto de perfil"
+                                class="form-input"
+                                value="<%= locals.oldData !== undefined && oldData.foto_de_perfil ? oldData.foto_de_perfil : "" %>">
+                        </div>
+
+                        <button type="submit" class="form-input">Registrarme</button>
+                    </form>
                 </div>
-
-                <form action="/profile/register" method="POST" novalidate>
-                    <div>
-                        <label for="name" class="form-label" >Nombre de Usuario</label>
-                        <input type="text" id="name" name="name" placeholder="nombre"  class="form-input"
-                               value="<%= locals.oldData !== undefined && oldData.name ? oldData.name : "" %>">
-
-                        <% if (locals.errors && errors.name) { %>
-                            <div class="error">
-                                <p><%= errors.name.msg %></p>
-                            </div>
-                        <% } %>
-                    </div>
-
-                    <div>
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-input" id="email" name="email" placeholder="email" 
-                               value="<%= locals.oldData !== undefined && oldData.email ? oldData.email : "" %>">
-
-                        <% if (locals.errors && errors.email) { %>
-                            <div class="error">
-                                <p><%= errors.email.msg %></p>
-                            </div>
-                        <% } %>
-                    </div>
-
-                    <div>
-                        <label for="password"  class="form-label" >Contraseña</label>
-                        <input type="password" id="password" name="password" placeholder="contraseña" class="form-input"
-                               value="<%= locals.oldData !== undefined && oldData.password ? oldData.password : "" %>">
-
-                        <% if (locals.errors && errors.password) { %>
-                            <div class="error">
-                                <p><%= errors.password.msg %></p>
-                            </div>
-                        <% } %>
-                    </div>
-
-                    <div>
-                        <label for="fecha_de_nacimiento"  class="form-label" >Fecha de nacimiento</label>
-                        <input type="date" id="fecha_de_nacimiento" name="fecha_de_nacimiento" placeholder="Fecha de nacimiento" class="form-input"
-                               value="<%= locals.oldData !== undefined && oldData.fecha_de_nacimiento ? oldData.fecha_de_nacimiento : "" %>">
-                    </div>
-                    <div>
-                        <label for="dni"  class="form-label" >Numero de documento</label>
-                        <input type="number" id="dni" name="dni" placeholder="Numero de documento" class="form-input"
-                               value="<%= locals.oldData !== undefined && oldData.dni ? oldData.dni : "" %>">
-                    </div>
-                    <div>
-                        <label for="foto_de_perfil"  class="form-label" >Foto de perfil</label>
-                        <input type="file" id="foto_de_perfil" name="foto_de_perfil" placeholder="Foto de perfil" class="form-input"
-                               value="<%= locals.oldData !== undefined && oldData.foto_de_perfil ? oldData.foto_de_perfil : "" %>">
-                    </div>
-
-                    <button type="submit" class="bottom">Registrarme</button>
-                </form>
             </div>
-        </div>
-        <!-- /Novedades -->
+            <!-- /Novedades -->
 
-        <!-- footer -->
-        <%- include('./partials/footer') %>
-        <!-- /footer -->
+            <!-- footer -->
+            <%- include('./partials/footer') %>
+                <!-- /footer -->
     </body>
+
 </html>

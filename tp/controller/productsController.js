@@ -217,13 +217,13 @@ const productsController = {
                             res.redirect(`/products/${id}`);
                         })
                         .catch(function (error) {
-                            console.error(error);
+                            console.log.error(error);
                             res.render("product", { auto: auto });
                         });
                 }
             })
             .catch(function (error) {
-                console.error(error);
+                console.log.error(error);
             });
     }
 }

@@ -1,65 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 	<!-- Include Head -->
 	<%- include('./partials/head') %>
 </head>
+
 <body>
 	<!-- Header -->
 	<% if (locals.user) { %>
 
 		<%- include('./partials/headerLogueado') %>
 
-  
-	<% } else { %> 
 
-			<%- include('./partials/header') %>
+			<% } else { %>
 
-	<% }  %>	
-	<!-- /Header -->
+				<%- include('./partials/header') %>
 
-	<!-- product -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title"> Resultados de su busqueda: </h2>
-			</div>
-				
-		
-		
-	
-		<% for(let i = 0; i < productos.length; i++) { %>
+					<% } %>
+						<!-- /Header -->
 
-					<div class="col-12 col-sm-6 col-lg-3">
+						<!-- product -->
+						<div class="container products-wrapper">
+							<div class="row">
+								<div class="col-12">
+									<h2 class="products-title"> Resultados de su busqueda: </h2>
+								</div>
 
-						<section class="product-box">
-							<a href="/products/<%= productos[i].id_producto %>">
-								<figure class="product-box_image">
-									<img src="/images/products/<%= productos[i].nombre_archivo_imagen %>" alt="">
-								</figure>
 
-								<article class="product-box_data">
 
-									<h2>  <%= productos[i].nombre_producto %> </h2>
-									<p>	<%= productos[i].descripcion_producto %></p>
-									<p> Cargado por : <%= productos[i].user.nombre %></p>
-		
-								</article>
 
-							</a>
-						</section>
-					</div>
+								<% for(let i=0; i < productos.length; i++) { %>
 
-		<% } %>
+									<div class="col-12 col-sm-6 col-lg-3">
 
-	</div>	
-	</div>
-	<!-- /product -->
+										<section class="product-box">
+											<a href="/products/<%= productos[i].id_producto %>">
+												<figure class="product-box_image">
+													<img src="/images/products/<%= productos[i].nombre_archivo_imagen %>"
+														alt="">
+												</figure>
 
-	<!-- footer -->
-	<%- include('./partials/footer') %>
-	<!-- /footer -->
+												<article class="product-box_data">
+
+													<h2>
+														<%= productos[i].nombre_producto %>
+													</h2>
+													<p>
+														<%= productos[i].descripcion_producto %>
+													</p>
+													<p> Cargado por : <%= productos[i].user.nombre %>
+													</p>
+
+												</article>
+
+											</a>
+										</section>
+									</div>
+
+									<% } %>
+
+							</div>
+						</div>
+						<!-- /product -->
+
+						<!-- footer -->
+						<%- include('./partials/footer') %>
+							<!-- /footer -->
 </body>
+
 </html>
-
-

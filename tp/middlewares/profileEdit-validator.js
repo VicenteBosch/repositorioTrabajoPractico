@@ -1,5 +1,5 @@
-const {body} = require("express-validator");
-const db= require("../database/models")
+const { body } = require("express-validator");
+const db = require("../database/models")
 const bcryptjs = require('bcryptjs');
 
 
@@ -14,14 +14,14 @@ const pofileEditValidations = [
         .withMessage("debes completar tu email")
         .isEmail()
         .withMessage("Debes escribir un formato de correo valido")
-       
+
     ,
-    
+
     body("contraseña")
         .notEmpty()
         .withMessage("Debes completar contraseña")
-        .isLength({min:4}).withMessage("La contraseña debe tener almenos 4 caracteres")
-    
+        .isLength({ min: 4 }).withMessage("La contraseña debe tener almenos 4 caracteres")
+
 
 
 ]

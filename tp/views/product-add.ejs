@@ -1,73 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
+<!-- Include Head -->
+<%- include('./partials/head') %>
 	<!-- Include Head -->
-	<%- include('./partials/head') %>
-	<!-- Include Head -->
-	
+
 	<body>
 		<!-- Header -->
 		<% if (locals.user) { %>
 
 			<%- include('./partials/headerLogueado') %>
 
-	  
-		<% } else { %> 
 
-				<%- include('./partials/header') %>
+				<% } else { %>
 
-		<% }  %> 
-		<!-- /Header -->
-		
-		<!-- Novedades -->
-		<div class="container products-wrapper">
-			<div class="row">
-				<div class="col-12">
-					<h2 class="products-title">Agregar autos</h2>
-				</div>
-				<!-- Show the "ultimos" products -->
-				<form action="/products/add" method="post">
-					<ul >
-						<li><label class="form-label" for="imagen">Imagen:</label></li>
-							
-							<input type="file" id="imagen" name="imagen" class="form-input"
-							value="<%= locals.oldData && oldData.imagen ? oldData.imagen : null %>"></li>
-							<% if (locals.errors&& errors.imagen) { %>
-								<div class="error">
-									<%= errors.imagen.msg %>
-								</div>
-								<% } %>
-						
-						<li><label class="form-label" for="nombre_producto">Nombre del Producto:</label></li>
-						
-							<input type="text" id="nombre_producto" name="nombre_producto" class="form-input"
-							value="<%= locals.oldData && oldData.nombre_producto ? oldData.nombre_producto : null %>"></li>
-							<% if (locals.errors&& errors.nombre_producto) { %>
-								<div class="error">
-									<%= errors.nombre_producto.msg %>
-								</div>
-								<% } %>
-						
-						<li><label class="form-label" for="descripcion">Descripción:</label></li>
-							
-							<input type="text" id="descripcion" name="descripcion" class="form-input"
-							value="<%= locals.oldData && oldData.descripcion ? oldData.descripcion : null %>">
-							</li>
-							<% if (locals.errors&& errors.descripcion) { %>
-								<div class="error">
-									<%= errors.descripcion.msg %>
-								</div>
-								<% } %>
-						
-						
-						<li><input class="form-input" type="submit" value="Agregar Producto"></li>
-					</ul>
-				</form>
-				
-			</div>
-		</div>
+					<%- include('./partials/header') %>
 
-		<!-- footer -->
-		<%- include('./partials/footer') %>
-		<!-- /footer -->
+						<% } %>
+							<!-- /Header -->
+
+							<!-- Novedades -->
+							<div class="container products-wrapper">
+								<div class="row">
+									<div class="col-12">
+										<h2 class="products-title">Agregar autos</h2>
+									</div>
+									<!-- Show the "ultimos" products -->
+									<form action="/products/add" method="post">
+										<ul>
+											<li><label class="form-label" for="imagen">Imagen:</label></li>
+
+											<input type="file" id="imagen" name="imagen" class="form-input"
+												value="<%= locals.oldData && oldData.imagen ? oldData.imagen : "" %>">
+											</li>
+											<% if (locals.errors&& errors.imagen) { %>
+												<div class="error">
+													<%= errors.imagen.msg %>
+												</div>
+												<% } %>
+
+													<li><label class="form-label" for="nombre_producto">Nombre del
+															Producto:</label></li>
+
+													<input type="text" id="nombre_producto" name="nombre_producto"
+														class="form-input"
+														value="<%= locals.oldData && oldData.nombre_producto ? oldData.nombre_producto : "" %>">
+													</li>
+													<% if (locals.errors&& errors.nombre_producto) { %>
+														<div class="error">
+															<%= errors.nombre_producto.msg %>
+														</div>
+														<% } %>
+
+															<li><label class="form-label"
+																	for="descripcion">Descripción:</label></li>
+
+															<input type="text" id="descripcion" name="descripcion"
+																class="form-input"
+																value="<%= locals.oldData && oldData.descripcion ? oldData.descripcion : "" %>">
+															</li>
+															<% if (locals.errors&& errors.descripcion) { %>
+																<div class="error">
+																	<%= errors.descripcion.msg %>
+																</div>
+																<% } %>
+
+
+																	<li><input class="form-input" type="submit"
+																			value="Agregar Producto"></li>
+										</ul>
+									</form>
+
+								</div>
+							</div>
+
+							<!-- footer -->
+							<%- include('./partials/footer') %>
+								<!-- /footer -->
 	</body>
+
 </html>
