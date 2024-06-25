@@ -1,0 +1,82 @@
+CREATE DATABASE autosdb;
+USE autosdb;
+
+CREATE TABLE usuarios (
+    id_usuarios INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    contraseña VARCHAR(255) NOT NULL,
+    fecha_de_nacimiento DATE,
+    dni INTEGER,
+    foto_de_perfil VARCHAR(255),
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deletedAt TIMESTAMP NULL
+);
+
+CREATE TABLE productos (
+    id_producto INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nombre_archivo_imagen TEXT,
+    nombre_producto VARCHAR(255),
+    descripcion_producto TEXT,
+    id_usuarios INT UNSIGNED,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deletedAt TIMESTAMP NULL,
+    FOREIGN KEY (id_usuarios) REFERENCES usuarios(id_usuarios) ON DELETE CASCADE
+);
+
+CREATE TABLE comentarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_producto INT UNSIGNED,
+    id_usuarios INT UNSIGNED,
+    texto_comentario TEXT,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deletedAt TIMESTAMP NULL,
+    FOREIGN KEY (id_producto) REFERENCES productos(id_producto) ON DELETE CASCADE,
+    FOREIGN KEY (id_usuarios) REFERENCES usuarios(id_usuarios) ON DELETE CASCADE
+);
+
+-- Insertar la información en las tablas --
+
+INSERT INTO usuarios (email, contraseña, nombre , foto_de_perfil)
+VALUES
+("vbosch@udesa.edu.ar", "contraseña1", "vbosch" , "fotoPerfil1.jpg"),
+("matrin@udesa.edu.ar", "contraseña2", "matrin" , "fotoPerfil2.jpg" ),
+("juana@udesa.edu.ar", "contraseña3",  "juana" , "fotoPerfil3.jpg"),
+("pedro@udesa.edu.ar", "contraseña4", "pedro","fotoPerfil4.jpg" ),
+("bautista@udesa.edu.ar", "contraseña5",  "bautista" , "fotoPerfil1.jpg");
+
+INSERT INTO productos (nombre_archivo_imagen, nombre_producto, descripcion_producto, id_usuarios)
+VALUES
+("auto1.jpg", "Toyota Corolla", "Un sedan deportivo con líneas elegantes y un motor potente que brinda una experiencia de conducción emocionante.", 5),
+("auto2.jpg", "Honda Civic", "Un coupé futurista con tecnología de vanguardia y un diseño aerodinámico que desafía los límites de la velocidad.", 2),
+("auto3.jpg", "Ford Fiesta", "Un vehículo todo terreno diseñado para aventuras extremas, con tracción en las cuatro ruedas y capacidad para superar cualquier obstáculo.", 4),
+("auto4.jpg", "Chevrolet Cruze", "Un convertible deportivo que combina estilo y rendimiento, perfecto para aquellos que disfrutan de la emoción de conducir con el viento en el cabello.", 5),
+("auto5.jpg", "Nissan Sentra", "Un automóvil deportivo de edición limitada, inspirado en la legendaria serie Corvette, que renace con un diseño aerodinámico y una potencia impresionante.", 1),
+("auto6.jpg", "Volskwagen Gol", "Un SUV de lujo con un diseño elegante y características innovadoras que ofrecen comodidad y seguridad en cada viaje.", 2),
+("auto7.jpg", "Volskwagen Taos", "Un hatchback compacto con un motor turboalimentado que ofrece una combinación perfecta de eficiencia y rendimiento.", 4),
+("auto8.jpg", "Toyota Hilux", "Un sedán de aspecto futurista, equipado con tecnología avanzada y un diseño aerodinámico que lo hace destacar en la carretera.", 5),
+("auto9.jpg", "Dogde Journey", "Un coche conceptual con un diseño inspirado en la naturaleza y tecnología avanzada que permite una experiencia de conducción única.", 3),
+("auto10.jpg", "Kia Sport", "Un vehículo anfibio con capacidades excepcionales tanto en agua como en tierra.", 3);
+
+
+
+INSERT INTO comentarios (id_producto, id_usuarios, texto_comentario)
+VALUES
+(2, 3, "Excelente auto, recomendable"),
+(4, 2, "No me resultó, no recomiendo"),
+(7, 5, "Gran compra, muy contento!"),
+(9, 1, "Tremendo auto, anda muy bien"),
+(3, 2, "Frecuento rápido el mecánico, pero después se porta muy bien"),
+(1, 3, "Diseño impresionante, pero el consumo es alto"),
+(6, 4, "Perfecto para viajes largos, muy cómodo"),
+(8, 1, "Tecnología avanzada, pero un poco caro"),
+(5, 3, "Deportivo con gran rendimiento y estilo"),
+(10, 5, "Sorprendido por su versatilidad y diseño innovador"),
+(3, 1, "Buen auto, pero podría mejorar en consumo"),
+(5, 2, "Estupendo rendimiento y comodidad"),
+(6, 3, "Ideal para familias grandes y viajes largos"),
+(2, 4, "Muy rápido, pero el mantenimiento es costoso"),
+(1, 5, "Encantado con la experiencia de manejo y diseño");

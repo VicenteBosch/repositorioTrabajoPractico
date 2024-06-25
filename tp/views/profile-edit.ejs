@@ -27,7 +27,7 @@
 					<ul>
 						<li><label for="email">Email:</label></li>
 						<li class = "formularios"><input type="email" id="email" name="email" 
-							value="<%= locals.user.email %>"></li>
+							value="<%= locals.user.email %>" class="form-input"></li>
 							<% if (locals.errors && errors.email) { %>
 								<div class="error">
 									<p><%= errors.email.msg %></p>
@@ -36,7 +36,7 @@
 						
 						<li><label for="usuario">Usuario:</label></li>
 						<li class = "formularios"><input type="text" id="usuario" name="usuario"
-							value="<%= locals.user.nombre %>"></li>
+							value="<%= locals.user.nombre %>" class="form-input"></li>
 							<% if (locals.errors && errors.usuario) { %>
 								<div class="error">
 									<p><%= errors.usuario.msg %></p>
@@ -44,7 +44,7 @@
 							<% } %>
 						
 						<li><label for="contraseña">Contraseña:</label></li>
-						<li class = "formularios"><input type="password" id="contraseña" name="contraseña"></li>
+						<li class = "formularios"><input type="password" id="contraseña" name="contraseña" class="form-input"></li>
 						<% if (locals.errors && errors.contraseña) { %>
                             <div class="error">
                                 <p><%= errors.contraseña.msg %></p>
@@ -53,18 +53,18 @@
 
 
 						<li><label for="fecha_nacimiento">Fecha de Nacimiento:</label></li>
-						<li class = "formularios"><input type="date" id="fecha_nacimiento" name="fecha_nacimiento"
-							value="<%= locals.user.fecha_de_nacimiento %>"></li>
+						<li class = "form"><input type="date" id="fecha_nacimiento" name="fecha_nacimiento"
+							value="<%= locals.user.fecha_de_nacimiento %>" class="form-input"></li>
 						
 						<li><label for="numero_documento">Número de Documento:</label></li>
 						<li class = "formularios"><input type="number" id="nro_documento" name="documento"
-							value="<%= locals.user.dni %>"></li>
+							value="<%= locals.user.dni %>" class="form-input"></li>
 						
 						<li><label for="foto_perfil">Foto de Perfil:</label></li>
 						<li class = "formularios"><input type="file" id="foto_perfil" name="foto_perfil"
-							value="<%= locals.user.foto_de_perfil %>"></li>
+							value="<%= locals.user.foto_de_perfil %>" class="form-input"></li>
 						
-						<li><input type="submit" value="Editar"></li>
+						<li><input type="submit" value="Editar" class="form-input"></li>
 					</ul>
 				</form>
 			</div>

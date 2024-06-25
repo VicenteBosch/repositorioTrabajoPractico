@@ -29,7 +29,7 @@
 					<ul >
 						<li><label class="form-label" for="imagen">Imagen:</label></li>
 							
-							<input type="file" id="imagen" name="imagen" class="form-label"
+							<input type="file" id="imagen" name="imagen" class="form-input"
 							value="<%= locals.oldData && oldData.imagen ? oldData.imagen : null %>"></li>
 							<% if (locals.errors&& errors.imagen) { %>
 								<div class="error">
@@ -39,7 +39,7 @@
 						
 						<li><label class="form-label" for="nombre_producto">Nombre del Producto:</label></li>
 						
-							<input type="text" id="nombre_producto" name="nombre_producto" class="form-label"
+							<input type="text" id="nombre_producto" name="nombre_producto" class="form-input"
 							value="<%= locals.oldData && oldData.nombre_producto ? oldData.nombre_producto : null %>"></li>
 							<% if (locals.errors&& errors.nombre_producto) { %>
 								<div class="error">
@@ -49,7 +49,7 @@
 						
 						<li><label class="form-label" for="descripcion">Descripción:</label></li>
 							
-							<input type="text" id="descripcion" name="descripcion" class="form-label"
+							<input type="text" id="descripcion" name="descripcion" class="form-input"
 							value="<%= locals.oldData && oldData.descripcion ? oldData.descripcion : null %>">
 							</li>
 							<% if (locals.errors&& errors.descripcion) { %>
@@ -59,7 +59,7 @@
 								<% } %>
 						
 						
-						<li><input type="submit" value="Agregar Producto"></li>
+						<li><input class="form-input" type="submit" value="Agregar Producto"></li>
 					</ul>
 				</form>
 				

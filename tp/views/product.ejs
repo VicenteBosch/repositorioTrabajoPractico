@@ -29,17 +29,18 @@
                 </article>
                 <div class="col-12 col-lg-4">
                     <section class="comments">
-                        <article>
-                            <div>
+                        
+                            <article >
                                 <% for( let i = 0; i < auto.comment.length; i++ ) { %>
+                                    <img src="/images/users/<%= auto.comment[i].user.foto_de_perfil %>" alt="">
+
                                     <p class="user">
                                         <strong><a href="/profile/<%= auto.comment[i].user.id_usuarios %>" class="product-detail-description">  <%= auto.comment[i].user.nombre %> </a></strong>
                                     </p>
-                                    <img class="product-detail-description"> <%= auto.comment[i].user.foto_de_perfil %> </img>
                                     <p class="product-detail-description"> <%= auto.comment[i].texto_comentario %> </p>
                                 <% } %>
-                            </div>
-                        </article>
+                            </article>
+
                         <% if (locals.user) { %>
                             <form class="form" action="/products/comentario/<%= auto.id_producto %>" method="POST">
                                 <input class="form-input" type="text" name="texto" placeholder="Agregar comentario">

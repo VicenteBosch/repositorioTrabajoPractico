@@ -22,7 +22,7 @@
 				<form action="/products/edit/<%= auto.id_producto %>" method="POST" novalidate>
 					<ul>
 						<li><label class="form-label" for="fotoNuevo"> Foto del producto</label></li>
-						<li class="formularios"><input type="text" id="fotoNuevo" name="fotoNuevo" class="form-label" value="<%= locals.oldData && oldData.fotoNuevo ? oldData.fotoNuevo : auto.nombre_archivo_imagen %>"></li>
+						<li class="form"><input type="text" id="fotoNuevo" name="fotoNuevo" class="form-input" value="<%= locals.oldData && oldData.fotoNuevo ? oldData.fotoNuevo : auto.nombre_archivo_imagen %>"></li>
 						<% if (locals.errors && errors.fotoNuevo) { %>
 							<div class="error">
 								<p><%= errors.fotoNuevo.msg %></p>
@@ -30,7 +30,7 @@
 						<% } %>
 
 						<li><label class="form-label" for="nombreNuevo"> Nombre del producto</label></li>
-						<li class="formularios"><input type="text" id="nombreNuevo" name="nombreNuevo" class="form-label" value="<%= locals.oldData && oldData.nombreNuevo ? oldData.nombreNuevo : auto.nombre_producto %>"></li>
+						<li class="formularios"><input type="text" id="nombreNuevo" name="nombreNuevo" class="form-input" value="<%= locals.oldData && oldData.nombreNuevo ? oldData.nombreNuevo : auto.nombre_producto %>"></li>
 						<% if (locals.errors && errors.nombreNuevo) { %>
 							<div class="error">
 								<p><%= errors.nombreNuevo.msg %></p>
@@ -38,14 +38,14 @@
 						<% } %>
 
 						<li><label class="form-label" for="descripcionNuevo"> Descripción del producto</label></li>
-						<li class="formularios"><input type="text" id="descripcionNuevo" name="descripcionNuevo" class="form-label" value="<%= locals.oldData && oldData.descripcionNuevo ? oldData.descripcionNuevo : auto.descripcion_producto %>"></li>
+						<li class="formularios"><input type="text" id="descripcionNuevo" name="descripcionNuevo"  value="<%= locals.oldData && oldData.descripcionNuevo ? oldData.descripcionNuevo : auto.descripcion_producto %>" class="form-input"></li>
 						<% if (locals.errors && errors.descripcionNuevo) { %>
 							<div class="error">
 								<p><%= errors.descripcionNuevo.msg %></p>
 							</div>
 						<% } %>
 
-						<button class="bottom" type="submit">Guardar cambios</button>
+						<button  type="submit" class="form-input" > Guardar cambios</button>
 					</ul>
 				</form>
 			</div>

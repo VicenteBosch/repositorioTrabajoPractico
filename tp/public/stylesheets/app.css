@@ -29,7 +29,7 @@ body {
 body {
   font-family: var(--base-font-family);
   font-weight: 300;
-  background-color: var(--light-gray);
+  background-color: #80c0c4;
 }
 
 ul,
@@ -68,7 +68,7 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 25px ;
-  background-color: #e0e0ca;
+  background-color: #80c0c4;
   
 
 }
@@ -174,12 +174,11 @@ hr {
 }
 
 .product-box {
-  background-color: #c7e2ca;
+  background-color: #e6fdff;
   border-radius: 5px;
   overflow: hidden;
   transition: 300ms;
-  padding: 5px;
-  height: 350px;
+  padding: 10px;
   
 }
 
@@ -203,7 +202,7 @@ flex-direction: row;
 .product-box{
 
   flex-direction: row;
-  height: 300px;
+  height: 350px;
   
 }
 .product-box a {
@@ -211,7 +210,7 @@ flex-direction: row;
 }
 
 .product-box_image {
-
+  
 }
 
 .product-box_data {
@@ -422,13 +421,13 @@ flex-direction: row;
 }
 .comments {
   padding: 30px 15px 15px 0;
+
 }
 .comments article{
   margin-bottom: 7.5px;
   padding-bottom: 7.5px;
   border-bottom: 1px solid #dcdcdc;
-  display: flex;
-  justify-content: space-between;
+ 
 }
 .comments img{
   width: 40px;
@@ -552,7 +551,7 @@ textarea.form-input {
 }
 
 .logo{
-  border-radius: 10px;
+  border-radius: 25px;
 }
 
 .col-12{
